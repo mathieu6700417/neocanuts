@@ -1,1 +1,62 @@
-[]
+[
+  {
+    "nom": "Élisabeth Ire",
+    "texte": "réponse à William Lee et à son métier à tricoter (1589)",
+    "raison": "Propos apocryphe : aucune source contemporaine ne le rapporte, et la tradition n'est connue que par des récits très postérieurs."
+  },
+  {
+    "nom": "Georges Duhamel",
+    "texte": "Scènes de la vie future (1930)",
+    "raison": "Aucune publication en ligne légitime n'a été trouvée ; l'œuvre est sous droits jusqu'à la fin de 2036."
+  },
+  {
+    "nom": "Martin Heidegger",
+    "texte": "La Question de la technique (1953)",
+    "raison": "Aucune édition libre en ligne ; le texte est sous droits jusqu'à la fin de 2046."
+  },
+  {
+    "nom": "Hannah Arendt",
+    "texte": "Condition de l'homme moderne, prologue (1958)",
+    "raison": "Aucun extrait publié en ligne par l'éditeur ou par une institution n'a été trouvé ; le texte est sous droits jusqu'à la fin de 2045."
+  },
+  {
+    "nom": "Lanza del Vasto",
+    "texte": "Les Quatre Fléaux (1959)",
+    "raison": "Le site de l'Association des amis de Lanza del Vasto ne publie que des aphorismes de quelques mots ; aucun paragraphe vérifiable en ligne."
+  },
+  {
+    "nom": "Lewis Mumford",
+    "texte": "Le Mythe de la machine (1967-1970) ; « Authoritarian and Democratic Technics » (1964)",
+    "raison": "Textes sous droits ; ils ne circulent en ligne que dans des copies sans autorisation apparente."
+  },
+  {
+    "nom": "Langdon Winner",
+    "texte": "« Do Artifacts Have Politics? » (1980)",
+    "raison": "Texte sous droits ; on n'en trouve en ligne que des PDF de cours et des copies non autorisées."
+  },
+  {
+    "nom": "Wendell Berry",
+    "texte": "« Why I Am Not Going to Buy a Computer » (1987)",
+    "raison": "Texte sous droits ; Harper's Magazine ne le donne qu'en PDF réservé à ses abonnés."
+  },
+  {
+    "nom": "Neil Postman",
+    "texte": "Technopoly (1992) et conférences",
+    "raison": "Textes sous droits ; les conférences ne circulent en ligne que sur des pages de cours, sans publication par l'auteur ou un éditeur."
+  },
+  {
+    "nom": "Kirkpatrick Sale",
+    "texte": "Rebels Against the Future (1995)",
+    "raison": "Texte sous droits ; aucune publication en ligne par l'auteur, l'éditeur ou un journal n'a été trouvée."
+  },
+  {
+    "nom": "Jaime Semprun",
+    "texte": "L'Abîme se repeuple (1997)",
+    "raison": "Texte sous droits ; les Éditions de l'Encyclopédie des Nuisances ne publient rien en ligne."
+  },
+  {
+    "nom": "Groupe Marcuse",
+    "texte": "La Liberté dans le coma (2013)",
+    "raison": "Texte sous droits ; aucun extrait ni tribune du groupe n'a été trouvé sur un site d'éditeur ou de presse."
+  }
+]
