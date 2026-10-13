@@ -19,7 +19,7 @@
   "devDependencies": {
     "@11ty/eleventy": "^3.1.6",
     "gray-matter": "^4.0.3",
-    "html-validate": "^11.16.2",
+    "html-validate": "^10.17.0",
     "markdown-it": "^15.0.2"
   }
 }
