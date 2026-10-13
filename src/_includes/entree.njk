@@ -1,0 +1,23 @@
+{%- set d = entree.data -%}
+<article class="entree" id="{{ d.slug }}" aria-labelledby="nom-{{ d.slug }}">
+<p class="annee">
+{%- if d.annee > 0 %}<time datetime="{{ d.annee | anneeIso }}">{{ d.date_affichee }}</time>{% else %}{{ d.date_affichee }}{% endif -%}
+</p>
+<h3 id="nom-{{ d.slug }}">{{ d.nom }}
+{%- set dates = d.dates_affichees or (d.naissance | dates(d.mort)) -%}
+{%- if dates %} <span class="dates">({{ dates }})</span>{% endif %}</h3>
+<p class="notice">{{ d.notice | trim }}</p>
+<blockquote cite="{{ d.source_url }}">
+{{ entree.content | safe }}</blockquote>
+<p class="reference">{{ d.oeuvre }}{% if d.traduction %} — {{ d.traduction }}{% endif %}. <span class="theme">Thème : {{ themes[d.theme] }}</span></p>
+{%- if d.original %}
+<details class="original">
+<summary>Texte original</summary>
+<p lang="{{ d.langue }}">{{ d.original | trim }}</p>
+</details>
+{%- endif %}
+<p class="liens">
+{%- if d.texte_integral_url %}<a href="{{ d.texte_integral_url }}">Texte intégral</a> · {% endif -%}
+{%- if d.original_url and d.original_url != d.source_url %}<a href="{{ d.original_url }}"{% if d.langue != "fr" %} hreflang="{{ d.langue }}"{% endif %}>Original</a> · {% endif -%}
+<a href="{{ d.source_url }}">Source de l'extrait</a>, vérifiée le <time datetime="{{ d.verifie | dateIso }}">{{ d.verifie | dateIso }}</time></p>
+</article>

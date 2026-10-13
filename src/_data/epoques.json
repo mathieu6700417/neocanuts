@@ -1,0 +1,9 @@
+[
+  { "cle": "antiquite", "libelle": "Antiquité", "debut": null, "fin": 499 },
+  { "cle": "classique", "libelle": "Renaissance et âge classique", "debut": 500, "fin": 1799 },
+  { "cle": "1800", "libelle": "1800–1850", "debut": 1800, "fin": 1849 },
+  { "cle": "1850", "libelle": "1850–1900", "debut": 1850, "fin": 1899 },
+  { "cle": "1900", "libelle": "1900–1945", "debut": 1900, "fin": 1944 },
+  { "cle": "1945", "libelle": "1945–1980", "debut": 1945, "fin": 1979 },
+  { "cle": "1980", "libelle": "Depuis 1980", "debut": 1980, "fin": null }
+]

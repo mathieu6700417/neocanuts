@@ -1,0 +1,25 @@
+{
+  "name": "neocanuts",
+  "version": "1.0.0",
+  "description": "Frise chronologique des voix opposées aux machines et au mécanisme",
+  "private": true,
+  "type": "module",
+  "license": "MIT",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "dev": "eleventy --serve",
+    "build": "eleventy",
+    "check": "node scripts/check.js",
+    "links": "node scripts/links.js",
+    "verify": "node scripts/verify.js",
+    "validate": "html-validate _site/index.html"
+  },
+  "devDependencies": {
+    "@11ty/eleventy": "^3.1.6",
+    "gray-matter": "^4.0.3",
+    "html-validate": "^11.16.2",
+    "markdown-it": "^15.0.2"
+  }
+}

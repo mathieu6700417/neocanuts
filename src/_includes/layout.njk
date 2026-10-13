@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{ site.titre }} — voix contre les machines, de l'Antiquité à aujourd'hui</title>
+<meta name="description" content="{{ site.description }}">
+<meta name="color-scheme" content="light dark">
+<link rel="canonical" href="{{ site.url }}">
+<meta property="og:type" content="website">
+<meta property="og:title" content="{{ site.titre }}">
+<meta property="og:description" content="{{ site.description }}">
+<meta property="og:url" content="{{ site.url }}">
+<meta property="og:locale" content="fr_FR">
+<link rel="preload" href="{{ '/fonts/eb-garamond-latin-400-normal.woff2' | url }}" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="{{ '/css/style.css' | url }}">
+</head>
+<body>
+{{ content | safe }}
+</body>
+</html>
