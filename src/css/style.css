@@ -210,6 +210,7 @@ cite { font-weight: 400; }
     text-align: right;
     line-height: 1.25;
     font-size: 0.95rem;
+    text-wrap: balance;
   }
 }
 

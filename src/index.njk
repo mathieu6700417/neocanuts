@@ -10,7 +10,7 @@ permalink: /
 {%- if epoque.cle == courante.cle %}
 <ol>
 {%- for entree in epoque.entrees %}
-<li><a href="#{{ entree.data.slug }}">{{ entree.data.nom }}</a></li>
+<li><a href="#{{ entree.data.slug }}">{{ entree.data.nom | insecables }}</a></li>
 {%- endfor %}
 </ol>
 {%- endif %}</li>
@@ -31,7 +31,7 @@ permalink: /
 <li><a href="#epoque-{{ epoque.cle }}">{{ epoque.libelle }}</a>
 <ol>
 {%- for entree in epoque.entrees %}
-<li><a href="#{{ entree.data.slug }}">{{ entree.data.nom }}</a></li>
+<li><a href="#{{ entree.data.slug }}">{{ entree.data.nom | insecables }}</a></li>
 {%- endfor %}
 </ol></li>
 {%- endfor %}
@@ -60,19 +60,19 @@ permalink: /
 
 <section id="absents" class="annexe" aria-labelledby="titre-absents">
 <h2 id="titre-absents">Absents</h2>
-<p>Ces auteurs avaient leur place dans la frise. Ils en sont écartés par la règle de rigueur : aucun extrait n'est publié sans avoir été vérifié mot à mot contre une source en ligne. Une édition consultable suffirait à les faire entrer.</p>
+<p>Ces auteurs avaient leur place dans la frise. Ils en sont écartés par la règle de rigueur : aucun extrait n'est publié sans avoir été vérifié mot à mot contre une source en ligne. Une édition consultable suffirait à les faire entrer.</p>
 <dl>
 {%- for absent in absents %}
-<dt>{{ absent.nom }}{% if absent.texte %}, <cite>{{ absent.texte }}</cite>{% endif %}</dt>
-<dd>{{ absent.raison }}</dd>
+<dt>{{ absent.nom }}{% if absent.texte %}, {{ absent.texte | insecables }}{% endif %}</dt>
+<dd>{{ absent.raison | insecables }}</dd>
 {%- endfor %}
 </dl>
 </section>
 
 <footer id="colophon" class="annexe" aria-labelledby="titre-colophon">
 <h2 id="titre-colophon">Colophon</h2>
-<p><strong>Méthode.</strong> Chaque voix est présentée par un seul paragraphe, classé à l'année du texte cité. Chaque extrait a été vérifié mot à mot contre la source en ligne indiquée sous l'entrée, à la date indiquée. Les coupes sont signalées par des crochets. Quand aucune traduction française libre de droits n'était disponible en ligne, la traduction est signée « traduction Néocanuts » et l'original reste affichable. Les notices situent, elles ne jugent pas.</p>
+<p><strong>Méthode.</strong> Chaque voix est présentée par un seul paragraphe, classé à l'année du texte cité. Chaque extrait a été vérifié mot à mot contre la source en ligne indiquée sous l'entrée, à la date indiquée. Les coupes sont signalées par des crochets. Quand aucune traduction française libre de droits n'était disponible en ligne, la traduction est signée « traduction Néocanuts » et l'original reste affichable. Les notices situent, elles ne jugent pas.</p>
 <p><strong>Sources.</strong> Wikisource, Gallica, le projet Gutenberg, Internet Archive, le Chinese Text Project, Perseus, et les sites des auteurs, des éditeurs et des journaux cités.</p>
 <p><strong>Licences.</strong> Les textes cités sont dans le domaine public ou reproduits en citation courte, avec leur référence. Les traductions Néocanuts sont sous licence <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.fr">CC BY-SA 4.0</a>. Le code est sous licence MIT. La police est EB Garamond, sous licence SIL Open Font License.</p>
-<p><strong>Fabrication.</strong> Une page HTML, une feuille de style, aucun script, aucun cookie, aucune mesure d'audience. Une erreur, un auteur manquant : le <a href="{{ site.depot }}">dépôt</a> est ouvert.</p>
+<p><strong>Fabrication.</strong> Une page HTML, une feuille de style, aucun script, aucun cookie, aucune mesure d'audience. Une erreur, un auteur manquant : le <a href="{{ site.depot }}">dépôt</a> est ouvert.</p>
 </footer>

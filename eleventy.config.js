@@ -1,11 +1,24 @@
 import markdownIt from "markdown-it";
 import { chargerEntrees, dateIso, epoques } from "./scripts/validation.js";
 
+// Espaces insécables du français : avant ; : ! ? » et après «.
+// « J.-C. » ne se coupe pas au trait d'union (gluon U+2060).
+const insecables = (texte) =>
+  String(texte)
+    .replace(/ ([;:!?»])/g, "\u00a0$1")
+    .replace(/« /g, "«\u00a0")
+    .replace(/\b(av|apr)\. J\.-C\./g, "$1.\u00a0J.-\u2060C.")
+    .replace(/\bv\. (?=\d)/g, "v.\u00a0");
+
 export default function (eleventyConfig) {
-  eleventyConfig.setLibrary(
-    "md",
-    markdownIt({ html: false, typographer: true, quotes: ["« ", " »", "‹ ", " ›"] }),
-  );
+  const md = markdownIt({ html: false, typographer: true, quotes: ["«\u00a0", "\u00a0»", "‹\u00a0", "\u00a0›"] });
+  md.core.ruler.push("insecables", (state) => {
+    for (const bloc of state.tokens) {
+      for (const jeton of bloc.children || []) if (jeton.type === "text") jeton.content = insecables(jeton.content);
+    }
+  });
+  eleventyConfig.setLibrary("md", md);
+  eleventyConfig.addFilter("insecables", insecables);
 
   eleventyConfig.addPassthroughCopy("src/css");
   eleventyConfig.addPassthroughCopy("src/fonts");
@@ -27,6 +40,11 @@ export default function (eleventyConfig) {
   });
 
   eleventyConfig.addFilter("dateIso", dateIso);
+
+  // « 14 octobre 2026 »
+  eleventyConfig.addFilter("dateFr", (v) =>
+    new Date(`${dateIso(v)}T12:00:00Z`).toLocaleDateString("fr-FR", { day: "numeric", month: "long", year: "numeric", timeZone: "UTC" }),
+  );
 
   // Valeur de l'attribut datetime d'un <time> : année à quatre chiffres, vide avant l'an 1.
   eleventyConfig.addFilter("anneeIso", (annee) => (annee > 0 ? String(annee).padStart(4, "0") : ""));

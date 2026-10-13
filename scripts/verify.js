@@ -11,26 +11,48 @@ const pages = new Map();
 
 const ENTITES = { amp: "&", lt: "<", gt: ">", quot: '"', apos: "'", nbsp: " ", laquo: "«", raquo: "»", hellip: "…", mdash: "—", ndash: "–", rsquo: "’", lsquo: "‘", ldquo: "“", rdquo: "”", oelig: "œ", OElig: "Œ", shy: "" };
 
-function telecharger(url) {
-  if (!pages.has(url)) {
-    const html = execFileSync("curl", ["-sSL", "--compressed", "--max-time", "60", "-A", AGENT, url], {
-      encoding: "utf8",
-      maxBuffer: 256 * 1024 * 1024,
-    });
-    pages.set(url, texteDe(html));
+// Télécharge une page et la décode : UTF-8 si possible, sinon Windows-1252 (vieux sites en latin-1).
+export function lirePage(url) {
+  const octets = execFileSync("curl", ["-sSL", "--compressed", "--max-time", "60", "-A", AGENT, url], {
+    maxBuffer: 256 * 1024 * 1024,
+  });
+  try {
+    return new TextDecoder("utf-8", { fatal: true }).decode(octets);
+  } catch {
+    return new TextDecoder("windows-1252").decode(octets);
   }
+}
+
+function telecharger(url) {
+  if (!pages.has(url)) pages.set(url, texteDe(lirePage(url)));
   return pages.get(url);
 }
+
+const ACCENTS = { acute: "\u0301", grave: "\u0300", circ: "\u0302", uml: "\u0308", cedil: "\u0327", tilde: "\u0303", ring: "\u030a" };
+const LIGATURES = { aelig: "æ", AElig: "Æ", szlig: "ß", oslash: "ø", Oslash: "Ø" };
+
+function entite(tout, nom) {
+  if (nom in ENTITES) return ENTITES[nom];
+  if (nom in LIGATURES) return LIGATURES[nom];
+  const accent = /^([a-zA-Z])(acute|grave|circ|uml|cedil|tilde|ring)$/.exec(nom);
+  return accent ? (accent[1] + ACCENTS[accent[2]]).normalize("NFC") : tout;
+}
+
+// Un exposant qui n'est qu'un appel de note : « 1 », « (2) », « [a] », « * ».
+const APPEL_DE_NOTE = /^\s*(\[[^\]]{1,5}\]|\(?\d+\)?|[*†‡])\s*$/;
 
 // HTML → texte brut : sans scripts, styles, appels de note ni numéros de page.
 export function texteDe(html) {
   return html
-    .replace(/<(script|style|sup|noscript)\b[^>]*>[\s\S]*?<\/\1>/gi, "")
-    .replace(/<span[^>]*class="[^"]*(pagenum|ws-noexport|mw-editsection|reference)[^"]*"[^>]*>[\s\S]*?<\/span>/gi, "")
+    .replace(/<(script|style|noscript)\b[^>]*>[\s\S]*?<\/\1>/gi, "")
+    .replace(/<sup\b([^>]*)>([\s\S]*?)<\/sup>/gi, (tout, attributs, contenu) =>
+      /reference|footnote|note/i.test(attributs) || APPEL_DE_NOTE.test(contenu.replace(/<[^>]+>/g, "")) ? "" : contenu,
+    )
+    .replace(/<span[^>]*class="[^"]*(pagenum|ws-noexport|mw-editsection|reference|zeilennummer|linenum|line-number)[^"]*"[^>]*>[\s\S]*?<\/span>/gi, "")
     .replace(/<[^>]+>/g, "")
     .replace(/&#x([0-9a-f]+);/gi, (_, h) => String.fromCodePoint(parseInt(h, 16)))
     .replace(/&#(\d+);/g, (_, d) => String.fromCodePoint(Number(d)))
-    .replace(/&([a-zA-Z]+);/g, (m, nom) => ENTITES[nom] ?? m);
+    .replace(/&([a-zA-Z]+);/g, entite);
 }
 
 // Neutralise ce qui n'est pas un mot : espaces, forme des guillemets, apostrophes et tirets.
@@ -48,11 +70,13 @@ export function normaliser(texte) {
 const sansMarkdown = (md) => md.replace(/\\\n/g, "\n").replace(/\\([*_\[\]])/g, "$1").replace(/(^|[^\\])[*_]/g, "$1");
 
 // Renvoie le premier passage introuvable, ou null si tout l'extrait est dans la page.
-export function chercher(extrait, page) {
-  const cible = normaliser(page);
+// `sansTirets` ignore tirets et traits d'union : tolère les césures de fin de ligne d'un OCR.
+export function chercher(extrait, page, sansTirets = false) {
+  const forme = (t) => (sansTirets ? normaliser(t).replace(/-/g, "") : normaliser(t));
+  const cible = forme(page);
   let position = 0;
   for (const passage of extrait.split(/\[(?:…|\.\.\.)\]/)) {
-    const morceau = normaliser(passage);
+    const morceau = forme(passage);
     if (!morceau) continue;
     const trouve = cible.indexOf(morceau, position);
     if (trouve === -1) return passage.trim();
@@ -82,15 +106,20 @@ if (process.argv[1] && process.argv[1].endsWith("verify.js")) {
     if (data.original) controles.push(["original", data.original, data.original_url || data.source_url]);
     for (const [quoi, texte, url] of controles) {
       let manque;
+      let note = "";
       try {
         const page = telecharger(url);
         manque = chercher(texte, page);
-        if (manque) manque = `${ecart(manque, page)}`;
+        if (manque && !chercher(texte, page, true)) {
+          manque = null;
+          note = " (aux césures et tirets près)";
+        }
+        if (manque) manque = ecart(manque, page);
       } catch (e) {
         manque = `téléchargement impossible (${e.message.split("\n")[0]})`;
       }
       if (manque) echecs++;
-      console.log(`${manque ? "ÉCHEC" : "ok   "} ${data.slug} · ${quoi} · ${url}${manque ? `\n      ${manque}` : ""}`);
+      console.log(`${manque ? "ÉCHEC" : "ok   "} ${data.slug} · ${quoi}${note} · ${url}${manque ? `\n      ${manque}` : ""}`);
     }
   }
   if (echecs) {
