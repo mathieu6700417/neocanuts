@@ -72,7 +72,7 @@ h1 { font-size: 2.6rem; letter-spacing: 0.01em; }
 .methode, .reference, .liens, .retour, .sommaire, .barre, .colonne, .annexe {
   font-size: 0.88rem;
 }
-.sommaire { padding: 1rem 0 2rem; border-top: 1px solid var(--filet); }
+.sommaire { padding: 1rem 0 2rem; border-top: 1px solid var(--filet); line-height: 1.9; }
 .sommaire h2, .annexe h2, .repere {
   font-size: 1rem;
   font-variant-caps: all-small-caps;
@@ -86,7 +86,7 @@ h1 { font-size: 2.6rem; letter-spacing: 0.01em; }
 .sommaire ol ol::before { content: " — "; color: var(--sourdine); }
 .sommaire ol ol li { display: inline; }
 .sommaire ol ol li + li::before { content: " · "; color: var(--sourdine); }
-.sommaire ol ol a { text-decoration: none; color: inherit; }
+.sommaire ol ol a { text-decoration: none; color: inherit; padding: 0.3em 0; }
 .sommaire ol ol a:hover { text-decoration: underline; }
 
 /* Barre d'époque (mobile) */

@@ -9,7 +9,7 @@ epoque: 1945
 oeuvre: "« I. – Une illusion fatale », Le Monde, 5 juin 1973 ; premier de trois articles écrits pour le journal en collaboration avec Luce Giard et Vincent Bardet, première version d'Énergie et équité (Seuil, 1973)"
 langue: fr
 theme: progres
-source_url: http://web.archive.org/web/20250123142302/https://www.lemonde.fr/archives/article/1973/06/05/i-une-illusion-fatale_2550948_1819218.html
+source_url: https://web.archive.org/web/20250123142302/https://www.lemonde.fr/archives/article/1973/06/05/i-une-illusion-fatale_2550948_1819218.html
 texte_integral_url: https://www.lemonde.fr/archives/article/1973/06/05/i-une-illusion-fatale_2550948_1819218.html
 verifie: 2026-10-14
 notice: >

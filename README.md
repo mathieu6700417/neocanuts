@@ -19,7 +19,7 @@ npm run build    # production, dans _site/
 | --- | --- |
 | `npm run check` | Valide les entrées et les ancres, sans rendu |
 | `npm run verify [slug…]` | Vérifie mot à mot les extraits contre leurs sources en ligne |
-| `npm run links` | Vérifie que les URL externes répondent |
+| `npm run links` | Vérifie que les URL externes répondent (les sites fermés aux robots sont signalés à part) |
 | `npm run validate` | Valide le HTML généré (après `build`) |
 
 ## Ajouter une entrée
@@ -73,7 +73,18 @@ npm run build    # production, dans _site/
   `source_url` et l'original contre `original_url`. Pour une « traduction
   Néocanuts », seul l'original est contrôlé : la traduction se relit à la
   main.
+- `verify` ignore les espaces, la forme des guillemets, apostrophes et tirets,
+  les appels de note et les numéros de vers ou de page balisés. Quand la
+  source est un OCR, il tolère les césures de fin de ligne et le signale
+  (« aux césures et tirets près »). Un repère d'éditeur incrusté dans le texte
+  (« [275a] », « (186) ») le fait échouer : choisir un passage qui n'en
+  contient pas.
+- Un site qui refuse les robots (Le Monde, ctext.org) ne peut pas servir de
+  `source_url` : citer une capture de web.archive.org ou une autre édition, et
+  garder le site d'origine en `texte_integral_url`.
 - Pas de mots seulement « attribués ».
+- Un auteur écarté par ces règles s'ajoute à `src/_data/absents.json`
+  (`nom`, `texte`, `raison`).
 
 Le build et `check` s'arrêtent en nommant le fichier et le champ fautif.
 

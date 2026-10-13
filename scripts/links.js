@@ -12,16 +12,20 @@ for (const { data } of entrees) {
 }
 
 let echecs = 0;
+let fermes = 0;
 for (const [url, origines] of urls) {
   let code;
   try {
-    code = execFileSync("curl", ["-sSL", "-o", "/dev/null", "-w", "%{http_code}", "--max-time", "40", "-A", AGENT, url], { encoding: "utf8" });
+    code = execFileSync("curl", ["-sSL", "--compressed", "-o", "/dev/null", "-w", "%{http_code}", "--max-time", "40", "-A", AGENT, url], { encoding: "utf8" });
   } catch {
     code = "000";
   }
   const ok = code.startsWith("2");
-  if (!ok) echecs++;
-  console.log(`${ok ? "ok   " : "ÉCHEC"} ${code} ${url}${ok ? "" : ` (${origines.join(", ")})`}`);
+  // 401, 402, 403 : le site existe mais refuse les robots ; à contrôler au navigateur.
+  const ferme = ["401", "402", "403"].includes(code);
+  if (ferme) fermes++;
+  else if (!ok) echecs++;
+  console.log(`${ok ? "ok   " : ferme ? "fermé" : "ÉCHEC"} ${code} ${url}${ok ? "" : ` (${origines.join(", ")})`}`);
 }
-console.log(`\n${urls.size} URL, ${echecs} en échec.`);
+console.log(`\n${urls.size} URL, ${echecs} en échec, ${fermes} fermée(s) aux robots.`);
 process.exit(echecs ? 1 : 0);

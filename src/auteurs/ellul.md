@@ -9,7 +9,7 @@ epoque: 1945
 oeuvre: "« Aspects et bilans de la société technicienne », Le Monde, 9 décembre 1955, p. 7"
 langue: fr
 theme: pouvoir
-source_url: http://web.archive.org/web/20210413201108/https://www.lemonde.fr/archives/article/1955/12/09/aspects-et-bilans-de-la-societe-technicienne_1943303_1819218.html
+source_url: https://web.archive.org/web/20210413201108/https://www.lemonde.fr/archives/article/1955/12/09/aspects-et-bilans-de-la-societe-technicienne_1943303_1819218.html
 texte_integral_url: https://www.lemonde.fr/archives/article/1955/12/09/aspects-et-bilans-de-la-societe-technicienne_1943303_1819218.html
 verifie: 2026-10-14
 notice: >
