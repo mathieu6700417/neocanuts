@@ -1,0 +1,106 @@
+[
+  {
+    "id": "n1",
+    "texte": "francais",
+    "passage": "Je puis du moins te rapporter une ancienne tradition ; les anciens savent la vérité. Si nous pouvions la trouver par nous-mêmes, attacherions-nous encore beaucoup de prix aux opinions humaines ?",
+    "etat": "validée",
+    "fil": [
+      {
+        "auteur": "Mathieu",
+        "type": "question",
+        "texte": "Explique moi ce passage",
+        "date": "2026-10-14"
+      },
+      {
+        "auteur": "Claude",
+        "type": "réponse",
+        "texte": "J’ai lu le passage dans son contexte (274b–275c, Cousin et grec de Wikisource), vérifié le sens de ἀκοή dans le Liddell-Scott (Perseus : « thing heard, report ») et la place du mythe dans l’article Wikipédia sur le Phèdre. La phrase sur le chêne de Dodone est coupée par le repère [275c] dans la source : je n’en cite que le début.",
+        "date": "2026-10-14"
+      }
+    ],
+    "note": "Phèdre vient d’avouer qu’il ignore comment plaire au dieu par ses discours. Socrate répond qu’il n’a qu’« une ancienne tradition » : le grec *akoè* désigne ce qu’on a entendu dire, un récit reçu. La vérité appartient aux anciens ; si nous la trouvions nous-mêmes, les « opinions humaines » ne compteraient plus. La phrase annonce le mythe de Theuth, transmis de bouche à oreille, juste avant que le dialogue ne critique l’écriture. Quand Phèdre le soupçonne d’inventer ses histoires égyptiennes, Socrate précise son critère : les anciens de Dodone consentaient « à n’écouter qu’un chêne ou une pierre », pourvu qu’ils disent vrai. Ce qui compte est la vérité du propos, non celui qui parle.",
+    "date": "2026-10-14",
+    "sources": [
+      {
+        "titre": "Platon, *Phèdre*, trad. Victor Cousin (Wikisource)",
+        "url": "https://fr.wikisource.org/wiki/Ph%C3%A8dre_(Platon,_trad._Cousin)"
+      },
+      {
+        "titre": "Platon, *Phèdre*, texte grec (Wikisource)",
+        "url": "https://el.wikisource.org/wiki/%CE%A6%CE%B1%E1%BF%96%CE%B4%CF%81%CE%BF%CF%82"
+      },
+      {
+        "titre": "Liddell-Scott, « ἀκοή » (Perseus)",
+        "url": "https://www.perseus.tufts.edu/hopper/text?doc=Perseus:text:1999.04.0057:entry=a)koh/"
+      },
+      {
+        "titre": "« Phèdre (Platon) », Wikipédia",
+        "url": "https://fr.wikipedia.org/wiki/Ph%C3%A8dre_(Platon)"
+      }
+    ],
+    "citations": [
+      {
+        "texte": "une ancienne tradition",
+        "source_url": "https://fr.wikisource.org/wiki/Ph%C3%A8dre_(Platon,_trad._Cousin)"
+      },
+      {
+        "texte": "opinions humaines",
+        "source_url": "https://fr.wikisource.org/wiki/Ph%C3%A8dre_(Platon,_trad._Cousin)"
+      },
+      {
+        "texte": "à n’écouter qu’un chêne ou une pierre",
+        "source_url": "https://fr.wikisource.org/wiki/Ph%C3%A8dre_(Platon,_trad._Cousin)"
+      }
+    ],
+    "publiee": {
+      "texte": "Phèdre vient d’avouer qu’il ignore comment plaire au dieu par ses discours. Socrate répond qu’il n’a qu’« une ancienne tradition » : le grec *akoè* désigne ce qu’on a entendu dire, un récit reçu. La vérité appartient aux anciens ; si nous la trouvions nous-mêmes, les « opinions humaines » ne compteraient plus. La phrase annonce le mythe de Theuth, transmis de bouche à oreille, juste avant que le dialogue ne critique l’écriture. Quand Phèdre le soupçonne d’inventer ses histoires égyptiennes, Socrate précise son critère : les anciens de Dodone consentaient « à n’écouter qu’un chêne ou une pierre », pourvu qu’ils disent vrai. Ce qui compte est la vérité du propos, non celui qui parle.",
+      "sources": [
+        {
+          "titre": "Platon, *Phèdre*, trad. Victor Cousin (Wikisource)",
+          "url": "https://fr.wikisource.org/wiki/Ph%C3%A8dre_(Platon,_trad._Cousin)"
+        },
+        {
+          "titre": "Platon, *Phèdre*, texte grec (Wikisource)",
+          "url": "https://el.wikisource.org/wiki/%CE%A6%CE%B1%E1%BF%96%CE%B4%CF%81%CE%BF%CF%82"
+        },
+        {
+          "titre": "Liddell-Scott, « ἀκοή » (Perseus)",
+          "url": "https://www.perseus.tufts.edu/hopper/text?doc=Perseus:text:1999.04.0057:entry=a)koh/"
+        },
+        {
+          "titre": "« Phèdre (Platon) », Wikipédia",
+          "url": "https://fr.wikipedia.org/wiki/Ph%C3%A8dre_(Platon)"
+        }
+      ],
+      "citations": [
+        {
+          "texte": "une ancienne tradition",
+          "source_url": "https://fr.wikisource.org/wiki/Ph%C3%A8dre_(Platon,_trad._Cousin)"
+        },
+        {
+          "texte": "opinions humaines",
+          "source_url": "https://fr.wikisource.org/wiki/Ph%C3%A8dre_(Platon,_trad._Cousin)"
+        },
+        {
+          "texte": "à n’écouter qu’un chêne ou une pierre",
+          "source_url": "https://fr.wikisource.org/wiki/Ph%C3%A8dre_(Platon,_trad._Cousin)"
+        }
+      ],
+      "date": "2026-10-14"
+    }
+  },
+  {
+    "id": "n2",
+    "texte": "francais",
+    "passage": "Ce dieu s’appelle Theuth. On dit qu’il a inventé le premier les nombres, le calcul, [274d] la géométrie et l’astronomie ; les jeux d’échecs, de dés, et l’écriture.",
+    "etat": "en attente",
+    "fil": [
+      {
+        "auteur": "Mathieu",
+        "type": "question",
+        "texte": "Connaît on ce Dieu ?",
+        "date": "2026-10-14"
+      }
+    ]
+  }
+]
