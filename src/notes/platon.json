@@ -151,42 +151,190 @@
     "id": "n3",
     "texte": "francais",
     "passage": "sous la domination de Thamus",
-    "etat": "en attente",
+    "etat": "validée",
     "fil": [
       {
         "auteur": "Mathieu",
         "type": "question",
         "texte": "Est ce que l'on sait à quelle époque ça correspond?",
         "date": "2026-10-14"
+      },
+      {
+        "auteur": "Claude",
+        "type": "réponse",
+        "texte": "Pas de datation possible : le texte grec et Cousin identifient Thamus au dieu Ammon ; Thèbes comme lieu de culte d’Amon et l’équivalence avec Zeus viennent de l’article Wikipédia « Amon ».",
+        "date": "2026-10-14"
       }
-    ]
+    ],
+    "note": "Le récit ne donne ni date ni règne : c’est un mythe, situé au temps où un dieu, Theuth, rend visite au roi. Cousin traduit que les Grecs appellent « la ville de Thèbes l’Égyptienne, et le dieu, Ammon » : Thamus est donc lui-même un dieu, celui que les Grecs nomment Ammon. Thèbes, en Haute-Égypte, était en effet le principal lieu de culte d’Amon, que les Grecs identifiaient à Zeus. Socrate présente d’ailleurs l’histoire comme une tradition reçue des anciens, non comme un fait daté.",
+    "sources": [
+      {
+        "titre": "Platon, *Phèdre*, trad. Victor Cousin (Wikisource)",
+        "url": "https://fr.wikisource.org/wiki/Ph%C3%A8dre_(Platon,_trad._Cousin)"
+      },
+      {
+        "titre": "Platon, *Phèdre*, texte grec (Wikisource)",
+        "url": "https://el.wikisource.org/wiki/%CE%A6%CE%B1%E1%BF%96%CE%B4%CF%81%CE%BF%CF%82"
+      },
+      {
+        "titre": "« Amon », Wikipédia",
+        "url": "https://fr.wikipedia.org/wiki/Amon"
+      }
+    ],
+    "citations": [
+      {
+        "texte": "la ville de Thèbes l’Égyptienne, et le dieu, Ammon",
+        "source_url": "https://fr.wikisource.org/wiki/Ph%C3%A8dre_(Platon,_trad._Cousin)"
+      }
+    ],
+    "date": "2026-10-14",
+    "publiee": {
+      "texte": "Le récit ne donne ni date ni règne : c’est un mythe, situé au temps où un dieu, Theuth, rend visite au roi. Cousin traduit que les Grecs appellent « la ville de Thèbes l’Égyptienne, et le dieu, Ammon » : Thamus est donc lui-même un dieu, celui que les Grecs nomment Ammon. Thèbes, en Haute-Égypte, était en effet le principal lieu de culte d’Amon, que les Grecs identifiaient à Zeus. Socrate présente d’ailleurs l’histoire comme une tradition reçue des anciens, non comme un fait daté.",
+      "sources": [
+        {
+          "titre": "Platon, *Phèdre*, trad. Victor Cousin (Wikisource)",
+          "url": "https://fr.wikisource.org/wiki/Ph%C3%A8dre_(Platon,_trad._Cousin)"
+        },
+        {
+          "titre": "Platon, *Phèdre*, texte grec (Wikisource)",
+          "url": "https://el.wikisource.org/wiki/%CE%A6%CE%B1%E1%BF%96%CE%B4%CF%81%CE%BF%CF%82"
+        },
+        {
+          "titre": "« Amon », Wikipédia",
+          "url": "https://fr.wikipedia.org/wiki/Amon"
+        }
+      ],
+      "citations": [
+        {
+          "texte": "la ville de Thèbes l’Égyptienne, et le dieu, Ammon",
+          "source_url": "https://fr.wikisource.org/wiki/Ph%C3%A8dre_(Platon,_trad._Cousin)"
+        }
+      ],
+      "date": "2026-10-14"
+    }
   },
   {
     "id": "n4",
     "texte": "francais",
     "passage": "toi, père de l’écriture, par une bienveillance naturelle pour ton ouvrage, tu l’as vu tout autre qu’il n’est : il ne produira que l’oubli dans l’esprit de ceux qui apprennent, en leur faisant négliger la mémoire. En effet, ils laisseront à ces caractères étrangers le soin de leur rappeler ce qu’ils auront confié à l’écriture, et n’en garderont eux-mêmes aucun souvenir. Tu n’as donc point trouvé un moyen pour la mémoire, mais pour la simple réminiscence, et tu n’offres à tes disciples que le nom de la science sans la réalité",
-    "etat": "en attente",
+    "etat": "validée",
     "fil": [
       {
         "auteur": "Mathieu",
         "type": "question",
         "texte": "Est ce que ce débat sur l'écriture a été repensée par d'autres ensuite?",
         "date": "2026-10-14"
+      },
+      {
+        "auteur": "Claude",
+        "type": "réponse",
+        "texte": "Derrida, Tübingen et Brisson d’après la section « Une critique de l’écriture ? » de l’article Wikipédia ; φάρμακον vérifié deux fois dans le grec (274e et 275a). Je n’ai pas trouvé de source consultable sur Ong ou Postman, souvent cités à ce propos : je ne les mentionne pas.",
+        "date": "2026-10-14"
       }
-    ]
+    ],
+    "note": "La critique de l’écriture n’a cessé d’être relue. Jacques Derrida, dans *La Pharmacie de Platon*, part du mot grec *pharmakon*, que Cousin rend ici tantôt par « remède », tantôt par « moyen » : à la fois remède et poison, il ferait de l’écriture le vrai sujet du dialogue. Les commentateurs de l’école de Tübingen, notamment Hans Krämer et Konrad Gaiser, y ont vu l’indice de « doctrines non écrites » que Platon aurait réservées à l’enseignement oral. D’autres, comme Luc Brisson, contestent que le passage oppose radicalement la parole et l’écrit.",
+    "sources": [
+      {
+        "titre": "« Phèdre (Platon) », Wikipédia",
+        "url": "https://fr.wikipedia.org/wiki/Ph%C3%A8dre_(Platon)"
+      },
+      {
+        "titre": "Platon, *Phèdre*, trad. Victor Cousin (Wikisource)",
+        "url": "https://fr.wikisource.org/wiki/Ph%C3%A8dre_(Platon,_trad._Cousin)"
+      },
+      {
+        "titre": "Platon, *Phèdre*, texte grec (Wikisource)",
+        "url": "https://el.wikisource.org/wiki/%CE%A6%CE%B1%E1%BF%96%CE%B4%CF%81%CE%BF%CF%82"
+      }
+    ],
+    "citations": [
+      {
+        "texte": "doctrines non écrites",
+        "source_url": "https://fr.wikipedia.org/wiki/Ph%C3%A8dre_(Platon)"
+      }
+    ],
+    "date": "2026-10-14",
+    "publiee": {
+      "texte": "La critique de l’écriture n’a cessé d’être relue. Jacques Derrida, dans *La Pharmacie de Platon*, part du mot grec *pharmakon*, que Cousin rend ici tantôt par « remède », tantôt par « moyen » : à la fois remède et poison, il ferait de l’écriture le vrai sujet du dialogue. Les commentateurs de l’école de Tübingen, notamment Hans Krämer et Konrad Gaiser, y ont vu l’indice de « doctrines non écrites » que Platon aurait réservées à l’enseignement oral. D’autres, comme Luc Brisson, contestent que le passage oppose radicalement la parole et l’écrit.",
+      "sources": [
+        {
+          "titre": "« Phèdre (Platon) », Wikipédia",
+          "url": "https://fr.wikipedia.org/wiki/Ph%C3%A8dre_(Platon)"
+        },
+        {
+          "titre": "Platon, *Phèdre*, trad. Victor Cousin (Wikisource)",
+          "url": "https://fr.wikisource.org/wiki/Ph%C3%A8dre_(Platon,_trad._Cousin)"
+        },
+        {
+          "titre": "Platon, *Phèdre*, texte grec (Wikisource)",
+          "url": "https://el.wikisource.org/wiki/%CE%A6%CE%B1%E1%BF%96%CE%B4%CF%81%CE%BF%CF%82"
+        }
+      ],
+      "citations": [
+        {
+          "texte": "doctrines non écrites",
+          "source_url": "https://fr.wikipedia.org/wiki/Ph%C3%A8dre_(Platon)"
+        }
+      ],
+      "date": "2026-10-14"
+    }
   },
   {
     "id": "n5",
     "texte": "francais",
     "passage": "et vraiment il ignore l’oracle d’Ammon",
-    "etat": "en attente",
+    "etat": "validée",
     "fil": [
       {
         "auteur": "Mathieu",
         "type": "question",
         "texte": "C'est à dire ?",
         "date": "2026-10-14"
+      },
+      {
+        "auteur": "Claude",
+        "type": "réponse",
+        "texte": "Lecture interne au texte : Thamus est identifié à Ammon en 274d ; la phrase suit en 275c–d. Je n’ai pas retenu l’oracle de Siwa, que Wikipédia rattache à un Ammon distinct de l’Amon égyptien.",
+        "date": "2026-10-14"
       }
-    ]
+    ],
+    "note": "L’« oracle d’Ammon », c’est le verdict que vient de rendre le roi Thamus, que le récit identifie au dieu nommé Ammon par les Grecs. Le mot donne à sa réponse le poids d’une parole divine : l’écriture ne fournit qu’un aide-mémoire, non un savoir. Socrate en tire la leçon : croire qu’un livre transmet un art clair et solide, c’est oublier que les discours écrits ne sont qu’« un moyen de réminiscence pour celui qui connaît déjà » le sujet.",
+    "sources": [
+      {
+        "titre": "Platon, *Phèdre*, trad. Victor Cousin (Wikisource)",
+        "url": "https://fr.wikisource.org/wiki/Ph%C3%A8dre_(Platon,_trad._Cousin)"
+      },
+      {
+        "titre": "Platon, *Phèdre*, texte grec (Wikisource)",
+        "url": "https://el.wikisource.org/wiki/%CE%A6%CE%B1%E1%BF%96%CE%B4%CF%81%CE%BF%CF%82"
+      }
+    ],
+    "citations": [
+      {
+        "texte": "un moyen de réminiscence pour celui qui connaît déjà",
+        "source_url": "https://fr.wikisource.org/wiki/Ph%C3%A8dre_(Platon,_trad._Cousin)"
+      }
+    ],
+    "date": "2026-10-14",
+    "publiee": {
+      "texte": "L’« oracle d’Ammon », c’est le verdict que vient de rendre le roi Thamus, que le récit identifie au dieu nommé Ammon par les Grecs. Le mot donne à sa réponse le poids d’une parole divine : l’écriture ne fournit qu’un aide-mémoire, non un savoir. Socrate en tire la leçon : croire qu’un livre transmet un art clair et solide, c’est oublier que les discours écrits ne sont qu’« un moyen de réminiscence pour celui qui connaît déjà » le sujet.",
+      "sources": [
+        {
+          "titre": "Platon, *Phèdre*, trad. Victor Cousin (Wikisource)",
+          "url": "https://fr.wikisource.org/wiki/Ph%C3%A8dre_(Platon,_trad._Cousin)"
+        },
+        {
+          "titre": "Platon, *Phèdre*, texte grec (Wikisource)",
+          "url": "https://el.wikisource.org/wiki/%CE%A6%CE%B1%E1%BF%96%CE%B4%CF%81%CE%BF%CF%82"
+        }
+      ],
+      "citations": [
+        {
+          "texte": "un moyen de réminiscence pour celui qui connaît déjà",
+          "source_url": "https://fr.wikisource.org/wiki/Ph%C3%A8dre_(Platon,_trad._Cousin)"
+        }
+      ],
+      "date": "2026-10-14"
+    }
   }
 ]
