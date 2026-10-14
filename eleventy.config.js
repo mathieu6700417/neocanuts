@@ -81,7 +81,7 @@ export default function (eleventyConfig) {
     const enLigne = note.publiee && note.etat !== "validée" ? '<span class="note-info">Une version validée reste en ligne.</span>' : "";
     const actions = [
       note.etat === "à relire" ? `<button type="button" data-action="valider" data-id="${note.id}">Valider</button>` : "",
-      note.etat !== "en attente" ? `<button type="button" data-action="precision" data-id="${note.id}">Demander une précision</button>` : "",
+      note.etat !== "en attente" ? `<button type="button" class="bouton-icone" data-action="precision" data-id="${note.id}" aria-label="Demander une précision" title="Demander une précision"><svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true"><path d="M2.5 3h11v7.5h-6l-3 2.5v-2.5h-2z" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"/></svg></button>` : "",
     ].join(" ");
     return `<span class="note note-locale" id="${id}" role="note" data-etat="${note.etat}"><span class="note-tete">${numero}${note.etat === "validée" ? "" : ` · ${note.etat}`}</span>${fil ? `<span class="note-fil">${fil}</span>` : ""}${reponse}${enLigne}<span class="note-actions">${actions}</span></span>`;
   };
