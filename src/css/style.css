@@ -72,30 +72,20 @@ a:hover { text-decoration-thickness: 2px; }
 }
 .evitement:focus { left: 16px; top: 8px; z-index: 3; padding: 0.2em 0.6em; background: var(--papier); }
 
-/* En-tête, sommaire, annexes : une colonne de lecture */
-.tete, .sommaire, .annexe, .epoque { max-width: 38em; margin: 0 auto; }
+/* En-tête, annexes : une colonne de lecture */
+.tete, .annexe, .epoque { max-width: 38em; margin: 0 auto; }
 .tete { padding: 3.5rem 0 1.5rem; }
 h1 { font-size: 2.6rem; letter-spacing: 0.01em; }
 .sous-titre { font-size: 1.15rem; font-style: italic; margin: 0.6em 0 0.8em; }
-.methode, .reference, .liens, .retour, .sommaire, .barre, .colonne, .annexe {
+.methode, .reference, .liens, .barre, .colonne, .annexe {
   font-size: 0.88rem;
 }
-.sommaire { padding: 1rem 0 2rem; border-top: 1px solid var(--filet); line-height: 1.9; }
-.sommaire h2, .annexe h2, .repere {
+.annexe h2, .repere {
   font-size: 1rem;
   font-variant-caps: all-small-caps;
   letter-spacing: 0.08em;
   color: var(--sourdine);
 }
-.sommaire h2 { margin-bottom: 0.5em; }
-.sommaire > ol > li { margin-bottom: 0.45em; }
-.sommaire > ol > li > a { font-weight: 600; }
-.sommaire ol ol { display: inline; }
-.sommaire ol ol::before { content: " — "; color: var(--sourdine); }
-.sommaire ol ol li { display: inline; }
-.sommaire ol ol li + li::before { content: " · "; color: var(--sourdine); }
-.sommaire ol ol a { text-decoration: none; color: inherit; padding: 0.3em 0; }
-.sommaire ol ol a:hover { text-decoration: underline; }
 
 /* Barre d'époque (mobile) */
 .barre {
@@ -173,7 +163,7 @@ blockquote { margin: 1em 0; }
 }
 .vers-chapitre:hover blockquote::before, .vers-chapitre:focus-visible blockquote::before { opacity: 0.55; }
 blockquote p { margin: 0; hyphens: auto; }
-.reference, .liens, .retour { color: var(--sourdine); }
+.reference, .liens { color: var(--sourdine); }
 .reference { margin-bottom: 0.4em; }
 .theme { white-space: nowrap; }
 .theme::before { content: "· "; }
@@ -186,8 +176,7 @@ blockquote p { margin: 0; hyphens: auto; }
   white-space: pre-line;
   font-family: "EB Garamond", "Iowan Old Style", Palatino, Georgia, "Songti SC", "Noto Serif CJK SC", serif;
 }
-.retour { margin: 0; }
-#sommaire, #absents, #colophon { scroll-margin-top: 1rem; }
+#absents, #colophon { scroll-margin-top: 1rem; }
 
 .annexe { padding: 2rem 0 0; margin-top: 2rem; border-top: 1px solid var(--filet); }
 .annexe h2 { margin-bottom: 0.8em; }
@@ -333,7 +322,7 @@ mark {
   html { font-size: 19px; }
   body { padding: 0 32px 6rem; }
   .barre { display: none; }
-  .tete, .sommaire, .annexe { max-width: 57.5rem; padding-left: 19.5rem; }
+  .tete, .annexe { max-width: 57.5rem; padding-left: 19.5rem; }
   .tete { padding-top: 5rem; }
   .epoque {
     display: grid;
@@ -374,7 +363,7 @@ mark {
 @media print {
   html { font-size: 11pt; }
   body { padding: 0; background: none; color: #000; }
-  .barre, .colonne, .sommaire, .retour, .evitement, .methode, .original summary { display: none; }
+  .barre, .colonne, .evitement, .methode, .original summary { display: none; }
   .reperes, .reperes-original, .retour-frise, .voisins { display: none; }
   mark { background: none; text-decoration: underline 1px; }
   .note { display: block; float: none; width: auto; margin: 0.3em 0; }

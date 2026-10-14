@@ -151,7 +151,7 @@ La page se lit comme un livre : une colonne de texte, une frise en marge, un
 sommaire toujours à portée de main, et rien d'autre.
 
 **Ordre de la page** : en-tête (titre, sous-titre d'une phrase, lien vers la
-méthode) · sommaire · frise · section « Absents » · colophon (sources,
+méthode) · frise · section « Absents » · colophon (sources,
 licences, lien vers le dépôt).
 
 **Sommaire**
@@ -162,7 +162,8 @@ licences, lien vers le dépôt).
 - Sur mobile : barre supérieure fine qui affiche l'époque courante et un
   bouton « Sommaire » ouvrant la liste des époques et des noms. Réalisé avec
   `<details>`, sans JavaScript.
-- En fin de chaque époque, un lien discret « Sommaire » ramène en haut.
+- Pas de sommaire en tête de page (retiré le 14 octobre 2026), ni de lien
+  « Sommaire » en fin d'époque.
 
 **Une entrée dans la frise** : année en marge gauche sur écran large,
 au-dessus du nom sur mobile ; nom et dates ; notice ; extrait dans un
@@ -426,6 +427,13 @@ entrées d'essai. Choix faits à l'implémentation :
   de 274b à 279c (la critique de l'écriture). Pour Plutarque, le chapitre 14
   correspond à quatre paragraphes de Pierron, qui ne numérote pas.
 - Les notes des traducteurs (Julien, Wieger, Baillard) ne sont pas reprises.
+- Un numéro de verset ou de paragraphe en tête de paragraphe s'écrit `1\.`
+  (sinon Markdown en fait une liste) ; `verify` retire cet échappement.
+- Hénoch : l'original ne donne que le codex de Panopolis ; les blocs de
+  Georges le Syncelle, intercalés sur el.wikisource, sont sautés par […].
+  Lucien : § 34-36 de Talbot sur remacle.org, coquilles de la source
+  comprises (« dans. tout », « magiques. et »), Talbot n'étant pas
+  transcrit sur Wikisource.
 
 ## Notes de lecture
 

@@ -24,21 +24,6 @@ permalink: /
 <p class="methode"><a href="#colophon">La méthode</a></p>
 </header>
 
-<nav id="sommaire" class="sommaire" aria-labelledby="titre-sommaire">
-<h2 id="titre-sommaire">Sommaire</h2>
-<ol>
-{%- for epoque in collections.frise %}
-<li><a href="#epoque-{{ epoque.cle }}">{{ epoque.libelle }}</a>
-<ol>
-{%- for entree in epoque.entrees %}
-<li><a href="#{{ entree.data.slug }}">{{ (entree.data.sommaire or entree.data.nom) | insecables }}</a></li>
-{%- endfor %}
-</ol></li>
-{%- endfor %}
-<li><a href="#absents">Absents</a></li>
-</ol>
-</nav>
-
 <main id="frise">
 {%- for epoque in collections.frise %}
 <section class="epoque" id="epoque-{{ epoque.cle }}" aria-labelledby="titre-{{ epoque.cle }}">
@@ -52,7 +37,6 @@ permalink: /
 {%- for entree in epoque.entrees %}
 {% include "entree.njk" %}
 {%- endfor %}
-<p class="retour"><a href="#sommaire">Sommaire</a></p>
 </div>
 </section>
 {%- endfor %}
