@@ -1,5 +1,6 @@
 import markdownIt from "markdown-it";
 import { chargerEntrees, dateIso, epoques } from "./scripts/validation.js";
+import { baliserMarques, marquerPassage, validerChapitres } from "./scripts/chapitres.js";
 
 // Espaces insécables du français : avant ; : ! ? » et après «.
 // « J.-C. » ne se coupe pas au trait d'union (gluon U+2060).
@@ -38,6 +39,33 @@ export default function (eleventyConfig) {
       .map((epoque) => ({ ...epoque, entrees: entrees.filter((e) => String(e.data.epoque) === epoque.cle) }))
       .filter((epoque) => epoque.entrees.length);
   });
+
+  // Les pages longues, dans l'ordre de la frise : le chapitre rendu avec le passage cité
+  // dans un <mark>, l'original de même, et les voisins qui ont aussi une page.
+  // Le build s'arrête si un chapitre ne contient pas le paragraphe de la frise.
+  const rendreMarque = (markdown, extrait, ancre) => baliserMarques(md.render(marquerPassage(markdown, extrait)), ancre);
+  eleventyConfig.addCollection("pagesLongues", (collectionApi) => {
+    const { entrees, erreurs } = chargerEntrees();
+    const { chapitres, erreurs: erreursChapitres } = validerChapitres(entrees);
+    erreurs.push(...erreursChapitres);
+    if (erreurs.length) {
+      throw new Error("Pages longues invalides :\n" + erreurs.map((e) => `  - ${e}`).join("\n"));
+    }
+    const pages = entrees
+      .filter((e) => chapitres.has(e.data.slug))
+      .map(({ data, corps }) => {
+        const chapitre = chapitres.get(data.slug);
+        return {
+          slug: data.slug,
+          entree: data,
+          chapitre: chapitre.data,
+          html: rendreMarque(chapitre.corps, corps, "passage"),
+          htmlOriginal: chapitre.original ? rendreMarque(chapitre.original, data.original, "passage-original") : null,
+        };
+      });
+    return pages.map((p, i) => ({ ...p, precedent: pages[i - 1]?.entree, suivant: pages[i + 1]?.entree }));
+  });
+  eleventyConfig.addFilter("aUnePage", (pages, slug) => pages.some((p) => p.slug === slug));
 
   eleventyConfig.addFilter("dateIso", dateIso);
 

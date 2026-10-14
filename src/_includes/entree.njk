@@ -7,8 +7,13 @@
 {%- set dates = d.dates_affichees or (d.naissance | dates(d.mort)) -%}
 {%- if dates %} <span class="dates">({{ dates | insecables }})</span>{% endif %}</h3>
 <p class="notice">{{ d.notice | trim | insecables }}</p>
+{%- if collections.pagesLongues | aUnePage(d.slug) %}
+<a class="vers-chapitre" href="{{ ('/' + d.slug + '/') | url }}"><span class="visuellement-cache">Lire le chapitre : {{ d.oeuvre | insecables }}. </span><blockquote cite="{{ d.source_url }}">
+{{ entree.content | safe }}</blockquote></a>
+{%- else %}
 <blockquote cite="{{ d.source_url }}">
 {{ entree.content | safe }}</blockquote>
+{%- endif %}
 <p class="reference">{{ d.oeuvre | insecables }}{% if d.traduction %} — {{ d.traduction | insecables }}{% endif %}. <span class="theme">Thème : {{ themes[d.theme] }}</span></p>
 {%- if d.original %}
 <details class="original">

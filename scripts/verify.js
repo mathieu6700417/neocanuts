@@ -5,6 +5,7 @@
 // Les passages séparés par […] doivent apparaître dans l'ordre.
 import { execFileSync } from "node:child_process";
 import { chargerEntrees } from "./validation.js";
+import { chargerChapitres } from "./chapitres.js";
 
 const AGENT = "Mozilla/5.0 (compatible; neocanuts-verify/1.0)";
 const pages = new Map();
@@ -89,14 +90,21 @@ export function chercher(extrait, page, sansTirets = false) {
 function ecart(passage, page) {
   const cible = normaliser(page);
   const morceau = normaliser(passage);
-  let n = morceau.length;
-  while (n > 0 && !cible.includes(morceau.slice(0, n))) n--;
+  // La présence d'un début est monotone : recherche dichotomique, utile pour un chapitre entier.
+  let n = 0;
+  let haut = morceau.length;
+  while (n < haut) {
+    const milieu = Math.ceil((n + haut) / 2);
+    if (cible.includes(morceau.slice(0, milieu))) n = milieu;
+    else haut = milieu - 1;
+  }
   return `concorde sur ${n} caractères, puis diverge à « ${morceau.slice(Math.max(0, n - 30), n)}▮${morceau.slice(n, n + 40)} »`;
 }
 
 if (process.argv[1] && process.argv[1].endsWith("verify.js")) {
   const voulus = process.argv.slice(2);
   const { entrees } = chargerEntrees();
+  const { chapitres } = chargerChapitres();
   let echecs = 0;
   for (const { data, corps } of entrees) {
     if (voulus.length && !voulus.includes(data.slug)) continue;
@@ -104,6 +112,11 @@ if (process.argv[1] && process.argv[1].endsWith("verify.js")) {
     const maison = /traduction Néocanuts/i.test(data.traduction || "");
     if (!maison) controles.push(["français", sansMarkdown(corps), data.source_url]);
     if (data.original) controles.push(["original", data.original, data.original_url || data.source_url]);
+    const chapitre = chapitres.get(data.slug);
+    if (chapitre) {
+      if (!/traduction Néocanuts/i.test(chapitre.data.traduction || "")) controles.push(["chapitre", sansMarkdown(chapitre.corps), chapitre.data.source_url]);
+      if (chapitre.original) controles.push(["chapitre original", sansMarkdown(chapitre.original), chapitre.data.original_url || chapitre.data.source_url]);
+    }
     for (const [quoi, texte, url] of controles) {
       let manque;
       let note = "";

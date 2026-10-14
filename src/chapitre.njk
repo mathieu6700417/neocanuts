@@ -1,0 +1,67 @@
+---
+layout: layout.njk
+pagination:
+  data: collections.pagesLongues
+  size: 1
+  alias: longue
+permalink: "/{{ longue.slug }}/"
+eleventyComputed:
+  titre: "{{ longue.entree.nom | safe }}, {{ longue.chapitre.chapitre | safe }}"
+  description: "{{ longue.entree.oeuvre | safe }}, {{ longue.chapitre.chapitre | safe }} : le texte entier, avec le passage cité dans la frise Néocanuts."
+  canonique: "{{ site.url }}{{ longue.slug }}/"
+---
+{%- set d = longue.entree -%}
+{%- set c = longue.chapitre -%}
+<a class="evitement" href="#lecture">Aller au texte</a>
+<header class="tete-chapitre">
+<p class="retour-frise"><a href="{{ ('/#' + d.slug) | url }}">← Retour à la frise</a></p>
+<h1>{{ d.nom | insecables }}
+{%- set dates = d.dates_affichees or (d.naissance | dates(d.mort)) -%}
+{%- if dates %} <span class="dates">({{ dates | insecables }})</span>{% endif %}</h1>
+<p class="oeuvre"><cite>{{ d.oeuvre | insecables }}</cite></p>
+<p class="chapitre">{{ c.chapitre | insecables }} · {% if d.annee > 0 %}<time datetime="{{ d.annee | anneeIso }}">{{ d.date_affichee | insecables }}</time>{% else %}{{ d.date_affichee | insecables }}{% endif %}</p>
+<p class="notice">{{ d.notice | trim | insecables }}</p>
+<nav class="reperes" aria-label="Repères">
+<ul>
+<li><a href="#passage">Aller au passage cité</a></li>
+{%- if longue.htmlOriginal %}
+<li><a href="#original">Lire l'original ({{ langues[d.langue] }})</a></li>
+{%- endif %}
+</ul>
+{%- if c.traduction %}
+<p class="traduction">Texte français : {{ c.traduction | insecables }}.</p>
+{%- endif %}
+</nav>
+</header>
+
+<main id="lecture" class="lecture">
+<div id="francais" class="texte">
+{{ longue.html | safe }}
+</div>
+{%- if longue.htmlOriginal %}
+<div id="original" class="texte texte-original">
+<p class="reperes-original"><a href="#francais">Revenir au français</a> · <a href="#passage-original">Aller au passage cité</a></p>
+<div lang="{{ d.langue }}">
+{{ longue.htmlOriginal | safe }}
+</div>
+</div>
+{%- endif %}
+</main>
+
+<footer class="pied-chapitre">
+<p>Texte français : <a href="{{ c.source_url }}">{{ c.traduction | insecables if c.traduction else "source" }}</a>
+{%- if longue.htmlOriginal and c.original_url %} · original : <a href="{{ c.original_url }}" hreflang="{{ d.langue }}">{{ langues[d.langue] }}</a>{% endif -%}
+, vérifiés mot à mot le <time datetime="{{ c.verifie | dateIso }}">{{ c.verifie | dateFr }}</time>.
+{%- if d.texte_integral_url %} <a href="{{ d.texte_integral_url }}">Texte intégral de l'œuvre</a>.{% endif %}</p>
+<nav class="voisins" aria-label="Autres pages longues">
+<ul>
+<li><a href="{{ ('/#' + d.slug) | url }}">← Retour à la frise</a></li>
+{%- if longue.precedent %}
+<li><a href="{{ ('/' + longue.precedent.slug + '/') | url }}" rel="prev">Précédent : {{ longue.precedent.nom | insecables }}</a></li>
+{%- endif %}
+{%- if longue.suivant %}
+<li><a href="{{ ('/' + longue.suivant.slug + '/') | url }}" rel="next">Suivant : {{ longue.suivant.nom | insecables }}</a></li>
+{%- endif %}
+</ul>
+</nav>
+</footer>

@@ -402,6 +402,26 @@ entrées ont un chapitre ou figurent dans les pages manquantes, et que `check`,
 `verify`, `build` et `validate` passent. Restent à Mathieu : relire les
 traductions Néocanuts des chapitres.
 
+**Avancement.** Le 14 octobre 2026, à la demande de Mathieu, le gabarit a
+été essayé sur les cinq premières entrées dans l'ordre chronologique
+(Platon, Laozi, Zhuangzi, Sénèque, Plutarque) plutôt que sur les trois
+entrées d'essai. Choix faits à l'implémentation :
+
+- `npm run check` signale les entrées encore à traiter sans échouer ;
+  `npm run check -- --complet` en fait des erreurs et sert de condition de
+  fusion.
+- L'original du chapitre est lui aussi contrôlé : il doit contenir
+  l'original de la frise, mis en évidence de la même façon (`#passage-original`).
+- La bascule français / original se fait sans script, par l'ancre
+  `#original` (`:target`).
+- Sur la frise, l'intitulé « Lire le chapitre : <œuvre> » est un texte
+  visuellement masqué au début du lien, et non un `aria-label`, qui aurait
+  caché l'extrait aux lecteurs d'écran.
+- Le Phèdre n'a pas de chapitres : la page longue donne la fin du dialogue,
+  de 274b à 279c (la critique de l'écriture). Pour Plutarque, le chapitre 14
+  correspond à quatre paragraphes de Pierron, qui ne numérote pas.
+- Les notes des traducteurs (Julien, Wieger, Baillard) ne sont pas reprises.
+
 ## Candidats au corpus
 
 Soixante-dix candidats de mémoire, à vérifier un par un ; la cinquantaine

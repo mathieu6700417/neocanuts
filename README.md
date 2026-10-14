@@ -17,10 +17,11 @@ npm run build    # production, dans _site/
 
 | Script | Rôle |
 | --- | --- |
-| `npm run check` | Valide les entrées et les ancres, sans rendu |
-| `npm run verify [slug…]` | Vérifie mot à mot les extraits contre leurs sources en ligne |
+| `npm run check` | Valide les entrées, les chapitres et les ancres, sans rendu |
+| `npm run check -- --complet` | Exige en plus un chapitre ou une page manquante pour chaque entrée (avant la fusion de `pages-longues`) |
+| `npm run verify [slug…]` | Vérifie mot à mot les extraits et les chapitres contre leurs sources en ligne |
 | `npm run links` | Vérifie que les URL externes répondent (les sites fermés aux robots sont signalés à part) |
-| `npm run validate` | Valide le HTML généré (après `build`) |
+| `npm run validate` | Valide toutes les pages HTML générées (après `build`) |
 
 ## Ajouter une entrée
 
@@ -59,6 +60,32 @@ npm run build    # production, dans _site/
 3. Lancer `npm run check` puis `npm run verify <slug>`. Les deux doivent
    passer avant tout commit.
 
+## Ajouter une page longue
+
+1. Trouver en ligne le chapitre entier dont l'extrait est tiré (mêmes sources
+   permises, jamais de bibliothèque pirate), en français et dans l'original.
+2. Créer `src/chapitres/<slug>.md` en copiant le texte depuis
+   `node scripts/texte.js <url>` :
+
+   ```yaml
+   ---
+   chapitre: "Lettre XC"           # titre affiché
+   source_url: https://…           # où le français a été vérifié
+   original_url: https://…         # où l'original a été vérifié
+   traduction: "traduction de …"   # « traduction Néocanuts, à relire » le cas échéant
+   verifie: 2026-10-14
+   ---
+   Le chapitre en français, en Markdown, un paragraphe par bloc.
+   ```
+
+   L'original va dans `src/chapitres/<slug>.original.md` (inutile si
+   `langue: fr`). Rien n'est balisé à la main : le build retrouve le
+   paragraphe de la frise et le met en évidence, et s'arrête s'il ne le
+   trouve pas.
+3. Sans chapitre en ligne, ajouter `{ "slug", "raison" }` à
+   `src/_data/pages_manquantes.json`.
+4. `npm run check` puis `npm run verify <slug>`.
+
 ### Règles
 
 - Un auteur, une entrée, un seul paragraphe de 60 à 200 mots (150 au plus
@@ -91,5 +118,6 @@ Le build et `check` s'arrêtent en nommant le fichier et le champ fautif.
 ## Licences
 
 Code sous licence MIT ([LICENSE](LICENSE)). Textes cités : domaine public ou
-citation courte. Traductions Néocanuts : CC BY-SA 4.0. Police EB Garamond :
+citation courte sur la frise ; chapitres entiers sur les pages longues, auteurs
+sous droits compris (voir la spécification). Traductions Néocanuts : CC BY-SA 4.0. Police EB Garamond :
 SIL Open Font License.

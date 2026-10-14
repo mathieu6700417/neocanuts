@@ -1,6 +1,7 @@
-// `npm run links` : vérifie que les URL externes des entrées répondent. Lancé à la main.
+// `npm run links` : vérifie que les URL externes des entrées et des chapitres répondent. Lancé à la main.
 import { execFileSync } from "node:child_process";
 import { chargerEntrees } from "./validation.js";
+import { chargerChapitres } from "./chapitres.js";
 
 const AGENT = "Mozilla/5.0 (compatible; neocanuts-links/1.0)";
 const { entrees } = chargerEntrees();
@@ -8,6 +9,11 @@ const urls = new Map();
 for (const { data } of entrees) {
   for (const champ of ["source_url", "original_url", "texte_integral_url"]) {
     if (data[champ]) urls.set(data[champ], [...(urls.get(data[champ]) || []), `${data.slug}.${champ}`]);
+  }
+}
+for (const [slug, { data }] of chargerChapitres().chapitres) {
+  for (const champ of ["source_url", "original_url"]) {
+    if (data[champ]) urls.set(data[champ], [...(urls.get(data[champ]) || []), `chapitres/${slug}.${champ}`]);
   }
 }
 

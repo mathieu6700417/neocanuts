@@ -14,7 +14,7 @@
     "check": "node scripts/check.js",
     "links": "node scripts/links.js",
     "verify": "node scripts/verify.js",
-    "validate": "html-validate _site/index.html"
+    "validate": "html-validate \"_site/**/*.html\""
   },
   "devDependencies": {
     "@11ty/eleventy": "^3.1.6",
