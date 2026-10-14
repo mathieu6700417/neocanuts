@@ -9,7 +9,7 @@
     "node": ">=20"
   },
   "scripts": {
-    "dev": "eleventy --serve",
+    "dev": "NEOCANUTS_LOCAL=1 eleventy --serve",
     "build": "eleventy",
     "check": "node scripts/check.js",
     "links": "node scripts/links.js",

@@ -11,7 +11,7 @@ Site : <https://mathieu6700417.github.io/neocanuts/> · Spécification :
 
 ```sh
 npm install
-npm run dev      # serveur local avec rechargement
+npm run dev      # site local avec rechargement et notes de lecture
 npm run build    # production, dans _site/
 ```
 
@@ -85,6 +85,16 @@ npm run build    # production, dans _site/
 3. Sans chapitre en ligne, ajouter `{ "slug", "raison" }` à
    `src/_data/pages_manquantes.json`.
 4. `npm run check` puis `npm run verify <slug>`.
+
+## Notes de lecture
+
+Sur le site local (`npm run dev`), sélectionner un passage d'une page longue
+puis « Poser une question ». La question s'enregistre dans
+`src/notes/<slug>.json`. Lancer ensuite `/notes` dans Claude Code : il publie
+les notes validées, puis rédige les réponses en attente, que l'on relit sur le
+site local avant de les valider ou de demander une précision. Seules les
+notes validées paraissent sur le site public. Détails : `SPEC.md`, « Notes de
+lecture », et `.claude/skills/notes/SKILL.md`.
 
 ### Règles
 

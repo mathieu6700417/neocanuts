@@ -14,9 +14,13 @@ const FICHIER_MANQUANTES = path.join(racine, "src", "_data", "pages_manquantes.j
 const vide = (v) => v === undefined || v === null || String(v).trim() === "";
 const estUrl = (v) => /^https?:\/\/\S+$/.test(String(v));
 
-// Bornes d'un passage repéré, remplacées au rendu par <mark> et </mark>.
-export const DEBUT = "";
-export const FIN = "";
+// Repères posés dans le Markdown avant le rendu, remplacés ensuite par du HTML :
+// passage cité (<mark>), passage annoté (<span class="annote">), appel de note n° N.
+export const DEBUT = "\ue000";
+export const FIN = "\ue001";
+export const ANNOTE = "\ue002";
+export const FIN_ANNOTE = "\ue003";
+export const appel = (n) => `\ue004${n}\ue005`;
 
 // Lit src/chapitres : un fichier <slug>.md, et <slug>.original.md quand l'œuvre n'est pas en français.
 export function chargerChapitres(dossier = DOSSIER_CHAPITRES) {
@@ -67,10 +71,9 @@ function formeIndexee(texte, sansTirets = false) {
   return { forme, positions };
 }
 
-// Encadre chaque passage de l'extrait (séparés par […]) dans le chapitre, par DEBUT et FIN,
-// en refermant et rouvrant la marque à chaque changement de paragraphe.
-// Renvoie le Markdown marqué, ou null si un passage est introuvable.
-export function marquerPassage(chapitre, extrait) {
+// Plages [début, fin[ du chapitre où se trouvent les passages de l'extrait (séparés par […]),
+// dans l'ordre, ou null si l'un d'eux manque. Tolère les césures si le texte exact échoue.
+export function trouverPlages(chapitre, extrait) {
   for (const sansTirets of [false, true]) {
     const cible = formeIndexee(chapitre, sansTirets);
     const plages = [];
@@ -88,29 +91,87 @@ export function marquerPassage(chapitre, extrait) {
       const fin = cible.positions[position - 1];
       plages.push([cible.positions[k], fin + String.fromCodePoint(chapitre.codePointAt(fin)).length]);
     }
-    if (!trouve || !plages.length) continue;
-    let sortie = "";
-    let curseur = 0;
-    for (const [debut, fin] of plages) {
-      const dedans = chapitre.slice(debut, fin).replace(/\n[ \t]*\n\s*/g, (saut) => `${FIN}${saut}${DEBUT}`);
-      sortie += chapitre.slice(curseur, debut) + DEBUT + dedans + FIN;
-      curseur = fin;
-    }
-    return sortie + chapitre.slice(curseur);
+    if (trouve && plages.length) return plages;
   }
   return null;
 }
 
-// Remplace DEBUT et FIN dans le HTML rendu par <mark> et </mark>. La marque ne couvre que du
-// texte : elle se referme et se rouvre autour de chaque balise, pour rester bien imbriquée.
-// La première porte l'ancre.
-export function baliserMarques(html, ancre) {
-  let premier = true;
-  return html
-    .replace(new RegExp(`${DEBUT}([\\s\\S]*?)${FIN}`, "g"), (_, dedans) => DEBUT + dedans.replace(/<[^>]+>/g, (balise) => FIN + balise + DEBUT) + FIN)
-    .replace(new RegExp(`${DEBUT}(\\s*)${FIN}`, "g"), "$1")
-    .replaceAll(DEBUT, () => (premier ? ((premier = false), `<mark id="${ancre}">`) : "<mark>"))
-    .replaceAll(FIN, "</mark>");
+// Nombre d'occurrences d'un passage (sans coupe) dans le chapitre, après normalisation.
+export function compterOccurrences(chapitre, passage) {
+  const cible = formeIndexee(chapitre).forme;
+  const morceau = formeIndexee(passage.normalize("NFC")).forme;
+  if (!morceau) return 0;
+  let n = 0;
+  for (let k = cible.indexOf(morceau); k !== -1; k = cible.indexOf(morceau, k + 1)) n++;
+  return n;
+}
+
+// Insère des repères autour de plages du Markdown : `ouvre` au début, `ferme` puis `apres`
+// à la fin, et `ferme` / `ouvre` de part et d'autre de chaque changement de paragraphe.
+export function inserer(chapitre, poses) {
+  const points = [];
+  for (const { debut, fin, ouvre, ferme, apres = "" } of poses) {
+    points.push({ pos: debut, rang: 2, texte: ouvre });
+    for (const saut of chapitre.slice(debut, fin).matchAll(/\n[ \t]*\n\s*/g)) {
+      points.push({ pos: debut + saut.index, rang: 0, texte: ferme });
+      points.push({ pos: debut + saut.index + saut[0].length, rang: 2, texte: ouvre });
+    }
+    points.push({ pos: fin, rang: 0, texte: ferme + apres });
+  }
+  points.sort((x, y) => x.pos - y.pos || x.rang - y.rang);
+  let sortie = "";
+  let curseur = 0;
+  for (const { pos, texte } of points) {
+    sortie += chapitre.slice(curseur, pos) + texte;
+    curseur = pos;
+  }
+  return sortie + chapitre.slice(curseur);
+}
+
+// Encadre l'extrait de la frise par DEBUT et FIN ; null s'il est introuvable.
+export function marquerPassage(chapitre, extrait) {
+  const plages = trouverPlages(chapitre, extrait);
+  return plages && inserer(chapitre, plages.map(([debut, fin]) => ({ debut, fin, ouvre: DEBUT, ferme: FIN })));
+}
+
+// Remplace une paire de repères par des balises dans le HTML rendu. Les plages qui se
+// chevauchent sont fusionnées ; la balise ne couvre que du texte et se referme et se
+// rouvre autour de chaque balise existante, pour rester bien imbriquée.
+function baliser(html, ouvre, ferme, ouvrante, fermante) {
+  let profondeur = 0;
+  let plat = "";
+  for (const car of html) {
+    if (car === ouvre) {
+      if (++profondeur === 1) plat += ouvre;
+    } else if (car === ferme) {
+      if (--profondeur === 0) plat += ferme;
+    } else plat += car;
+  }
+  let rang = 0;
+  return plat
+    .replace(new RegExp(`${ouvre}([\\s\\S]*?)${ferme}`, "g"), (_, dedans) => ouvre + dedans.replace(/<[^>]+>/g, (balise) => ferme + balise + ouvre) + ferme)
+    .replace(new RegExp(`${ouvre}(\\s*)${ferme}`, "g"), "$1")
+    .replaceAll(ouvre, () => ouvrante(rang++))
+    .replaceAll(ferme, fermante);
+}
+
+// HTML final d'un texte rendu : passages annotés, passage cité (la première marque porte
+// `ancre`), puis appels de note, sortis des marques et des soulignés qui les entourent.
+export function finaliser(html, { ancre, rendreAppel = () => "" }) {
+  let sortie = baliser(html, ANNOTE, FIN_ANNOTE, () => '<span class="annote">', "</span>");
+  sortie = baliser(sortie, DEBUT, FIN, (i) => (i === 0 ? `<mark id="${ancre}">` : "<mark>"), "</mark>");
+  const pile = [];
+  sortie = sortie.replace(/<mark\b[^>]*>|<\/mark>|<span class="annote">|<\/span>|\ue004(\d+)\ue005/g, (jeton, n) => {
+    if (n === undefined) {
+      if (jeton.startsWith("</")) pile.pop();
+      else pile.push(jeton.startsWith("<mark") ? "mark" : "annote");
+      return jeton;
+    }
+    const fermer = [...pile].reverse().map((t) => (t === "mark" ? "</mark>" : "</span>")).join("");
+    const rouvrir = pile.map((t) => (t === "mark" ? "<mark>" : '<span class="annote">')).join("");
+    return fermer + rendreAppel(Number(n)) + rouvrir;
+  });
+  return sortie.replace(/<mark>(\s*)<\/mark>|<span class="annote">(\s*)<\/span>/g, "$1$2");
 }
 
 // Contrôle les chapitres contre les entrées : en-tête, original, passage cité,

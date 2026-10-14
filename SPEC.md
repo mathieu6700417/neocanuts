@@ -422,6 +422,44 @@ entrées d'essai. Choix faits à l'implémentation :
   correspond à quatre paragraphes de Pierron, qui ne numérote pas.
 - Les notes des traducteurs (Julien, Wieger, Baillard) ne sont pas reprises.
 
+## Notes de lecture
+
+Sur le site local, Mathieu surligne un passage d'une page longue et pose une
+question ; Claude y répond par une note dans le texte, publiée sur le site
+après relecture. Décidé le 14 octobre 2026, en dix questions.
+
+| # | Question | Décision |
+| --- | --- | --- |
+| 1 | Circuit | Une file de questions dans le dépôt ; Claude répond dans une session Claude Code (pas d'API) |
+| 2 | Où surligner | Pages longues, en français et dans l'original |
+| 3 | Visibilité | Les notes sont publiées sur le site public |
+| 4 | Publication | Après relecture de Mathieu ; « Valider » et « Demander une précision » sur le site local |
+| 5 | Affichage | Passage souligné en pointillé, appel numéroté ; note dans la marge sur grand écran, dépliée sous la ligne ailleurs |
+| 6 | En ligne | La réponse seule, sans la question ; Claude réécrit la note après une précision |
+| 7 | Règles | Sources en ligne citées par lien ; citations contrôlées par `verify` ; pas de note si la réponse n'est pas sûre ; situer sans juger ; 30 à 150 mots |
+| 8 | Signature | « Note Néocanuts », datée ; la méthode dans le colophon |
+| 9 | Déclencheur | Skill `/notes` ; le site local affiche le nombre de questions en attente |
+| 10 | Mise en ligne | `/notes` commite et pousse les notes validées après `check`, `verify`, `build` et `validate`, vérifie en ligne, puis traite la file |
+
+**Site local.** `npm run dev` pose `NEOCANUTS_LOCAL=1`. Le serveur de
+développement d'Eleventy reçoit alors `POST /api/notes/question`, `valider` et
+`precision` (intergiciel de `scripts/notes.js`), écrit `src/notes/<slug>.json`,
+reconstruit et recharge la page. Le site local montre toutes les notes, leur
+fil et les boutons, ainsi qu'un bandeau « n questions en attente ». Le build
+public ne contient que les notes validées et aucun script : la note se déplie
+par son ancre (`:target`).
+
+**Modèle.** `src/notes/<slug>.json` est une liste de notes : `id`, `texte`
+(`francais` ou `original`), `passage` (texte exact, unique dans le chapitre),
+`etat` (`en attente`, `à relire`, `sans note`, `validée`), `fil` (tours
+`{ auteur, type, texte, date }`), réponse en cours (`note`, `sources`,
+`citations`, `date`) et `publiee`, la copie faite à la validation, seule
+montrée en ligne. Une note en révision garde donc sa version publiée.
+
+**Ancrage.** Le passage est retrouvé par la normalisation de `verify`, comme
+le passage cité. Le site local refuse un passage absent ou présent plusieurs
+fois ; le build et `check` échouent si un passage a disparu du chapitre.
+
 ## Candidats au corpus
 
 Soixante-dix candidats de mémoire, à vérifier un par un ; la cinquantaine

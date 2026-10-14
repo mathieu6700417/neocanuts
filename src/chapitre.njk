@@ -34,14 +34,14 @@ eleventyComputed:
 </nav>
 </header>
 
-<main id="lecture" class="lecture">
-<div id="francais" class="texte">
+<main id="lecture" class="lecture"{% if local %} data-slug="{{ longue.slug }}"{% endif %}>
+<div id="francais" class="texte"{% if local %} data-texte="francais"{% endif %}>
 {{ longue.html | safe }}
 </div>
 {%- if longue.htmlOriginal %}
 <div id="original" class="texte texte-original">
 <p class="reperes-original"><a href="#francais">Revenir au français</a> · <a href="#passage-original">Aller au passage cité</a></p>
-<div lang="{{ d.langue }}">
+<div lang="{{ d.langue }}"{% if local %} data-texte="original"{% endif %}>
 {{ longue.htmlOriginal | safe }}
 </div>
 </div>

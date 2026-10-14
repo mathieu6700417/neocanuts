@@ -6,6 +6,7 @@
 import { execFileSync } from "node:child_process";
 import { chargerEntrees } from "./validation.js";
 import { chargerChapitres } from "./chapitres.js";
+import { chargerNotes } from "./notes.js";
 
 const AGENT = "Mozilla/5.0 (compatible; neocanuts-verify/1.0)";
 const pages = new Map();
@@ -105,6 +106,7 @@ if (process.argv[1] && process.argv[1].endsWith("verify.js")) {
   const voulus = process.argv.slice(2);
   const { entrees } = chargerEntrees();
   const { chapitres } = chargerChapitres();
+  const { notes } = chargerNotes();
   let echecs = 0;
   for (const { data, corps } of entrees) {
     if (voulus.length && !voulus.includes(data.slug)) continue;
@@ -116,6 +118,11 @@ if (process.argv[1] && process.argv[1].endsWith("verify.js")) {
     if (chapitre) {
       if (!/traduction Néocanuts/i.test(chapitre.data.traduction || "")) controles.push(["chapitre", sansMarkdown(chapitre.corps), chapitre.data.source_url]);
       if (chapitre.original) controles.push(["chapitre original", sansMarkdown(chapitre.original), chapitre.data.original_url || chapitre.data.source_url]);
+    }
+    // Citations des notes de lecture : la version en cours et la version publiée.
+    for (const note of notes.get(data.slug) || []) {
+      const citations = new Map([...(note.publiee?.citations || []), ...(note.citations || [])].map((c) => [c.texte + c.source_url, c]));
+      for (const c of citations.values()) controles.push([`note ${note.id}`, c.texte, c.source_url]);
     }
     for (const [quoi, texte, url] of controles) {
       let manque;

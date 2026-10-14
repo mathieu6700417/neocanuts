@@ -220,6 +220,82 @@ mark {
 /* Bascule sans script : l'original s'affiche quand il est la cible de l'adresse (#original). */
 .texte-original:not(:target):not(:has(:target)) { display: none; }
 .lecture:has(.texte-original:target, .texte-original :target) #francais { display: none; }
+/* Notes de lecture : passage souligné en pointillé, appel numéroté, note dépliée sous la
+   ligne au clic (sans script, par l'ancre) ; dans la marge sur grand écran. */
+.annote { text-decoration: underline dotted 1px var(--accent); text-underline-offset: 0.22em; }
+.appel { font-size: 0.68em; line-height: 0; }
+.appel a { text-decoration: none; padding: 0 0.15em; font-variant-numeric: lining-nums; }
+.note {
+  display: none;
+  margin: 0.5em 0 0.7em;
+  padding: 0.4em 0 0.4em 0.8em;
+  border-left: 2px solid var(--filet);
+  font-size: 0.84rem;
+  line-height: 1.45;
+  color: var(--sourdine);
+  hyphens: manual;
+}
+.note:target { display: block; border-left-color: var(--accent); }
+.note-numero { color: var(--accent); }
+.note-sources, .note-signature { font-style: italic; }
+.note-locale > span, .tour { display: block; }
+.note-tete { color: var(--accent); font-variant-caps: all-small-caps; letter-spacing: 0.06em; }
+.tour { margin-bottom: 0.25em; }
+.tour-mathieu { color: var(--encre); }
+.note-corps { margin-top: 0.3em; padding-top: 0.3em; border-top: 1px dotted var(--filet); }
+.note-locale[data-etat="en attente"] { border-left-style: dashed; }
+.note-actions button, .bouton-question, .panneau-note button {
+  font: inherit;
+  font-size: 0.84rem;
+  color: var(--accent);
+  background: var(--papier);
+  border: 1px solid var(--filet);
+  border-radius: 3px;
+  padding: 0.25em 0.7em;
+  margin: 0.3em 0.3em 0 0;
+  cursor: pointer;
+}
+.bandeau-local {
+  max-width: 33em;
+  margin: 0 auto;
+  padding: 0.4em 0;
+  font-size: 0.8rem;
+  color: var(--sourdine);
+  border-bottom: 1px dashed var(--filet);
+}
+.bouton-question { position: absolute; z-index: 5; margin: 0; box-shadow: 0 1px 4px rgb(0 0 0 / 0.15); }
+.panneau-note {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 6;
+  max-width: 36em;
+  margin: 0 auto;
+  padding: 0.8em 16px 1em;
+  background: var(--papier);
+  border: 1px solid var(--filet);
+  border-bottom: 0;
+  box-shadow: 0 -2px 10px rgb(0 0 0 / 0.12);
+  font-size: 0.9rem;
+}
+.panneau-note[hidden], .bouton-question[hidden] { display: none; }
+.panneau-titre { margin: 0 0 0.3em; font-weight: 600; }
+.panneau-passage { margin: 0 0 0.5em; max-height: 6em; overflow-y: auto; color: var(--sourdine); font-style: italic; }
+.panneau-note textarea { width: 100%; font: inherit; padding: 0.4em; background: var(--papier); color: var(--encre); border: 1px solid var(--filet); }
+.panneau-actions { margin: 0.4em 0 0; }
+.panneau-etat { color: var(--sourdine); }
+@media (min-width: 1240px) {
+  .note {
+    display: block;
+    float: right;
+    clear: right;
+    width: 13em;
+    margin: 0.2em -15em 0.8em 0;
+    padding: 0 0 0 0.7em;
+  }
+}
+
 .pied-chapitre { padding-top: 1.2rem; border-top: 1px solid var(--filet); color: var(--sourdine); }
 .voisins { margin-top: 1.2em; }
 
@@ -271,6 +347,7 @@ mark {
   .barre, .colonne, .sommaire, .retour, .evitement, .methode, .original summary { display: none; }
   .reperes, .reperes-original, .retour-frise, .voisins { display: none; }
   mark { background: none; text-decoration: underline 1px; }
+  .note { display: block; float: none; width: auto; margin: 0.3em 0; }
   .tete, .annexe, .epoque { display: block; max-width: none; padding-left: 0; }
   .entrees { margin: 0; padding-left: 0; border: 0; }
   .repere::before, .entree::before { display: none; }
