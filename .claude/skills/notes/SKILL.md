@@ -37,7 +37,8 @@ Pour chaque note `"etat": "en attente"` (question neuve, ou `précision` en fin 
    `node scripts/texte.js <url>`.
 3. Si la réponse est sûre, mettre à jour la note :
    - `fil` : ajouter `{ "auteur": "Claude", "type": "réponse", "texte": <ce que j'ai trouvé,
-     mes doutes, ce qui a changé>, "date": <AAAA-MM-JJ> }` ;
+     mes doutes, ce qui a changé>, "date": <AAAA-MM-JJ> }`. Ce compte rendu reste dans le
+     fichier mais n'est pas affiché : Mathieu ne voit que ses questions et la note ;
    - `note` : la réponse publiable, **réécrite en entier** si c'est une précision (elle
      intègre la précision ; la question n'y figure pas). 30 à 150 mots, Markdown en ligne
      (*italique* seulement). Elle explique et situe, ne juge pas l'auteur ;
@@ -46,8 +47,8 @@ Pour chaque note `"etat": "en attente"` (question neuve, ou `précision` en fin 
      guillemets, copiée depuis la source ; `verify` la contrôle mot à mot ;
    - `date` : aujourd'hui ; `etat` : `"à relire"`. Ne jamais toucher `publiee` : la
      version en ligne reste celle que Mathieu a validée.
-4. Si je ne trouve pas de réponse sûre : ajouter au `fil` une réponse qui dit ce que j'ai
-   cherché et pourquoi je ne conclus pas, sans écrire de `note`, et passer `etat` à
+4. Si je ne trouve pas de réponse sûre : ajouter au `fil` une réponse, adressée à Mathieu et
+   affichée sur le site local, qui dit ce que j'ai cherché et pourquoi je ne conclus pas, sans écrire de `note`, et passer `etat` à
    `"sans note"`. Mathieu peut relancer par une demande de précision.
 5. `npm run check` puis `npm run verify <slug>` : les deux doivent passer.
 

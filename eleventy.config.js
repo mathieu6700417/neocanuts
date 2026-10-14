@@ -66,7 +66,10 @@ export default function (eleventyConfig) {
       const p = note.publiee;
       return `${appelHtml}<span class="note" id="${id}" role="note"><span class="note-numero">${numero}.</span> ${md.renderInline(p.texte)} ${rendreSources(p.sources)} <span class="note-signature">Note Néocanuts, ${dateFr(p.date)}.</span></span>`;
     }
+    // Les messages de travail de Claude restent dans le fichier ; on ne les montre que
+    // lorsqu'il n'y a pas de note pour répondre (« sans note »).
     const fil = note.fil
+      .filter((t, i) => t.auteur !== "Claude" || (note.etat === "sans note" && i === note.fil.length - 1))
       .map((t) => `<span class="tour tour-${t.auteur === "Claude" ? "claude" : "mathieu"}"><b>${t.auteur === "Claude" ? "Claude" : "Vous"}${t.type === "précision" ? " (précision)" : ""} :</b> ${echapper(t.texte)}</span>`)
       .join("");
     const reponse = note.note ? `<span class="note-corps">${md.renderInline(note.note)} ${rendreSources(note.sources)}</span>` : "";
