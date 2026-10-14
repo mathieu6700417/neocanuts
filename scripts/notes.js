@@ -9,7 +9,7 @@ import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { compterMots, dateIso } from "./validation.js";
-import { ANNOTE, FIN_ANNOTE, appel, chargerChapitres, compterOccurrences, trouverPlages } from "./chapitres.js";
+import { ANNOTE, FIN_ANNOTE, appel, chargerChapitres, corpsNote, compterOccurrences, trouverPlages } from "./chapitres.js";
 
 const racine = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 export const DOSSIER_NOTES = path.join(racine, "src", "notes");
@@ -107,7 +107,8 @@ export function validerNotes(chapitres) {
   return { notes, erreurs };
 }
 
-// Pose les notes d'un texte dans son Markdown : passage annoté, puis appel numéroté.
+// Pose les notes d'un texte dans son Markdown : corps de la note au début du passage annoté
+// (la note de marge s'aligne ainsi sur sa première ligne), appel numéroté à la fin.
 // `garder` choisit les notes affichées. Renvoie le Markdown et les notes dans l'ordre du texte.
 export function poserNotes(markdown, liste, texte, garder) {
   const placees = liste
@@ -117,7 +118,14 @@ export function poserNotes(markdown, liste, texte, garder) {
     .sort((a, b) => a.plages[0][0] - b.plages[0][0])
     .map((p, i) => ({ ...p, numero: i + 1 }));
   const poses = placees.flatMap(({ plages, numero }) =>
-    plages.map(([debut, fin], k) => ({ debut, fin, ouvre: ANNOTE, ferme: FIN_ANNOTE, apres: k === plages.length - 1 ? appel(numero) : "" })),
+    plages.map(([debut, fin], k) => ({
+      debut,
+      fin,
+      ouvre: ANNOTE,
+      ferme: FIN_ANNOTE,
+      avant: k === 0 ? corpsNote(numero) : "",
+      apres: k === plages.length - 1 ? appel(numero) : "",
+    })),
   );
   return { poses, notes: placees.map(({ note, numero }) => ({ note, numero })) };
 }

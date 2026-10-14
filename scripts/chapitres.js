@@ -21,6 +21,7 @@ export const FIN = "\ue001";
 export const ANNOTE = "\ue002";
 export const FIN_ANNOTE = "\ue003";
 export const appel = (n) => `\ue004${n}\ue005`;
+export const corpsNote = (n) => `\ue006${n}\ue007`;
 
 // Lit src/chapitres : un fichier <slug>.md, et <slug>.original.md quand l'œuvre n'est pas en français.
 export function chargerChapitres(dossier = DOSSIER_CHAPITRES) {
@@ -106,12 +107,12 @@ export function compterOccurrences(chapitre, passage) {
   return n;
 }
 
-// Insère des repères autour de plages du Markdown : `ouvre` au début, `ferme` puis `apres`
-// à la fin, et `ferme` / `ouvre` de part et d'autre de chaque changement de paragraphe.
+// Insère des repères autour de plages du Markdown : `avant` puis `ouvre` au début, `ferme`
+// puis `apres` à la fin, et `ferme` / `ouvre` de part et d'autre de chaque changement de paragraphe.
 export function inserer(chapitre, poses) {
   const points = [];
-  for (const { debut, fin, ouvre, ferme, apres = "" } of poses) {
-    points.push({ pos: debut, rang: 2, texte: ouvre });
+  for (const { debut, fin, ouvre, ferme, avant = "", apres = "" } of poses) {
+    points.push({ pos: debut, rang: 2, texte: avant + ouvre });
     for (const saut of chapitre.slice(debut, fin).matchAll(/\n[ \t]*\n\s*/g)) {
       points.push({ pos: debut + saut.index, rang: 0, texte: ferme });
       points.push({ pos: debut + saut.index + saut[0].length, rang: 2, texte: ouvre });
@@ -156,12 +157,12 @@ function baliser(html, ouvre, ferme, ouvrante, fermante) {
 }
 
 // HTML final d'un texte rendu : passages annotés, passage cité (la première marque porte
-// `ancre`), puis appels de note, sortis des marques et des soulignés qui les entourent.
-export function finaliser(html, { ancre, rendreAppel = () => "" }) {
+// `ancre`), puis appels et corps de note, sortis des marques et des soulignés qui les entourent.
+export function finaliser(html, { ancre, rendreAppel = () => "", rendreCorps = () => "" }) {
   let sortie = baliser(html, ANNOTE, FIN_ANNOTE, () => '<span class="annote">', "</span>");
   sortie = baliser(sortie, DEBUT, FIN, (i) => (i === 0 ? `<mark id="${ancre}">` : "<mark>"), "</mark>");
   const pile = [];
-  sortie = sortie.replace(/<mark\b[^>]*>|<\/mark>|<span class="annote">|<\/span>|\ue004(\d+)\ue005/g, (jeton, n) => {
+  sortie = sortie.replace(/<mark\b[^>]*>|<\/mark>|<span class="annote">|<\/span>|([\ue004\ue006])(\d+)[\ue005\ue007]/g, (jeton, genre, n) => {
     if (n === undefined) {
       if (jeton.startsWith("</")) pile.pop();
       else pile.push(jeton.startsWith("<mark") ? "mark" : "annote");
@@ -169,7 +170,7 @@ export function finaliser(html, { ancre, rendreAppel = () => "" }) {
     }
     const fermer = [...pile].reverse().map((t) => (t === "mark" ? "</mark>" : "</span>")).join("");
     const rouvrir = pile.map((t) => (t === "mark" ? "<mark>" : '<span class="annote">')).join("");
-    return fermer + rendreAppel(Number(n)) + rouvrir;
+    return fermer + (genre === "\ue004" ? rendreAppel : rendreCorps)(Number(n)) + rouvrir;
   });
   return sortie.replace(/<mark>(\s*)<\/mark>|<span class="annote">(\s*)<\/span>/g, "$1$2");
 }

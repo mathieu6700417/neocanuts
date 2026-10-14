@@ -240,6 +240,9 @@ mark {
 .note-sources, .note-signature { font-style: italic; }
 .note-locale > span, .tour { display: block; }
 .note-tete { color: var(--accent); font-variant-caps: all-small-caps; letter-spacing: 0.06em; }
+.note-locale[data-etat="validée"] > .note-tete, .note-locale[data-etat="validée"] > .note-corps { display: inline; }
+.note-locale[data-etat="validée"] > .note-tete { margin-right: 0.3em; font-variant-caps: normal; letter-spacing: 0; }
+.note-locale[data-etat="validée"] > .note-tete::after { content: "."; }
 .tour { margin-bottom: 0.25em; }
 .tour-mathieu { color: var(--encre); }
 .note-fil + .note-corps { margin-top: 0.3em; padding-top: 0.3em; border-top: 1px dotted var(--filet); }
@@ -294,6 +297,9 @@ mark {
     margin: 0.2em -15em 0.8em 0;
     padding: 0 0 0 0.7em;
   }
+}
+@media (min-width: 1400px) {
+  .note { width: 19em; margin-right: -21em; }
 }
 
 .pied-chapitre { padding-top: 1.2rem; border-top: 1px solid var(--filet); color: var(--sourdine); }

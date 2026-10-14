@@ -52,19 +52,20 @@ export default function (eleventyConfig) {
       .filter((epoque) => epoque.entrees.length);
   });
 
-  // Une note rendue dans le texte : appel numéroté puis note de marge (en <span>, pour rester
-  // dans le paragraphe). En ligne, la version publiée seule ; en local, le fil et les actions.
+  // Une note rendue dans le texte : la note de marge (en <span>, pour rester dans le paragraphe)
+  // au début du passage, l'appel numéroté à la fin. En ligne, la version publiée seule ; en
+  // local, l'état, le dernier message utile et les actions.
   const echapper = md.utils.escapeHtml;
   // « 14 octobre 2026 »
   const dateFr = (v) =>
     new Date(`${dateIso(v)}T12:00:00Z`).toLocaleDateString("fr-FR", { day: "numeric", month: "long", year: "numeric", timeZone: "UTC" });
   const rendreSources = (sources) =>
     sources?.length ? `<span class="note-sources">Sources : ${sources.map((x) => `<a href="${echapper(x.url)}">${md.renderInline(x.titre)}</a>`).join(", ")}.</span>` : "";
+  const rendreAppel = ({ numero }, id) => `<sup class="appel"><a href="#${id}" id="appel-${id}" aria-label="Note ${numero}">${numero}</a></sup>`;
   const rendreNote = ({ note, numero }, id) => {
-    const appelHtml = `<sup class="appel"><a href="#${id}" id="appel-${id}" aria-label="Note ${numero}">${numero}</a></sup>`;
     if (!LOCAL) {
       const p = note.publiee;
-      return `${appelHtml}<span class="note" id="${id}" role="note"><span class="note-numero">${numero}.</span> ${md.renderInline(p.texte)} ${rendreSources(p.sources)} <span class="note-signature">Note Néocanuts, ${dateFr(p.date)}.</span></span>`;
+      return `<span class="note" id="${id}" role="note"><span class="note-numero">${numero}.</span> ${md.renderInline(p.texte)} ${rendreSources(p.sources)} <span class="note-signature">Note Néocanuts, ${dateFr(p.date)}.</span></span>`;
     }
     // Le fil reste dans le fichier. On n'en montre que le dernier message quand il n'y a pas
     // de note à lire : la question en attente, ou l'explication de Claude (« sans note »).
@@ -79,7 +80,7 @@ export default function (eleventyConfig) {
       note.etat === "à relire" ? `<button type="button" data-action="valider" data-id="${note.id}">Valider</button>` : "",
       note.etat !== "en attente" ? `<button type="button" data-action="precision" data-id="${note.id}">Demander une précision</button>` : "",
     ].join(" ");
-    return `${appelHtml}<span class="note note-locale" id="${id}" role="note" data-etat="${note.etat}"><span class="note-tete">${numero}${note.etat === "validée" ? "" : ` · ${note.etat}`}</span>${fil ? `<span class="note-fil">${fil}</span>` : ""}${reponse}${enLigne}<span class="note-actions">${actions}</span></span>`;
+    return `<span class="note note-locale" id="${id}" role="note" data-etat="${note.etat}"><span class="note-tete">${numero}${note.etat === "validée" ? "" : ` · ${note.etat}`}</span>${fil ? `<span class="note-fil">${fil}</span>` : ""}${reponse}${enLigne}<span class="note-actions">${actions}</span></span>`;
   };
 
   // Rend un texte (français ou original) : passage cité dans un <mark>, notes posées.
@@ -88,7 +89,11 @@ export default function (eleventyConfig) {
     const { poses, notes: placees } = poserNotes(markdown, notes, texte, (n) => LOCAL || n.publiee);
     const prefixe = texte === "original" ? "note-o" : "note-f";
     const html = md.render(inserer(markdown, [...passage, ...poses]));
-    return finaliser(html, { ancre, rendreAppel: (n) => rendreNote(placees[n - 1], `${prefixe}${n}`) });
+    return finaliser(html, {
+      ancre,
+      rendreAppel: (n) => rendreAppel(placees[n - 1], `${prefixe}${n}`),
+      rendreCorps: (n) => rendreNote(placees[n - 1], `${prefixe}${n}`),
+    });
   };
 
   // Les pages longues, dans l'ordre de la frise : le chapitre rendu avec le passage cité
