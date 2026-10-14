@@ -370,7 +370,7 @@ différente de l'extrait »…). `npm run check` exige que chaque entrée ait un
 chapitre ou figure dans cette liste, jamais les deux.
 
 **Sur la frise.** Quand un chapitre existe, le `<blockquote>` de l'extrait est
-enveloppé dans un lien vers `<slug>/`, souligné au survol, avec un intitulé
+enveloppé dans un lien vers `<slug>/`, signalé au survol par un filet discret en marge (pas de soulignement), avec un intitulé
 accessible « Lire le chapitre : <œuvre> ». La bascule de l'original reste hors
 du lien. Sans chapitre, rien ne change.
 
