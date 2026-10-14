@@ -1,0 +1,64 @@
+Aurea prima sata est aetas, quae vindice nullo,\
+sponte sua, sine lege fidem rectumque colebat.\
+Poena metusque aberant, nec verba minantia fixo\
+aere legebantur, nec supplex turba timebat\
+iudicis ora sui, sed erant sine vindice tuti.\
+Nondum caesa suis, peregrinum ut viseret orbem,\
+montibus in liquidas pinus descenderat undas,\
+nullaque mortales praeter sua litora norant.\
+Nondum praecipites cingebant oppida fossae;\
+non tuba directi, non aeris cornua flexi,\
+non galeae, non ensis erat: sine militis usu\
+mollia securae peragebant otia gentes.\
+ipsa quoque inmunis rastroque intacta nec ullis\
+saucia vomeribus per se dabat omnia tellus;\
+contentique cibis nullo cogente creatis\
+arbuteos fetus montanaque fraga legebant\
+cornaque et in duris haerentia mora rubetis\
+et quae deciderant patula Iovis arbore glandes.\
+Ver erat aeternum, placidique tepentibus auris\
+mulcebant zephyri natos sine semine flores.\
+Mox etiam fruges tellus inarata ferebat,\
+nec renovatus ager gravidis canebat aristis;\
+flumina iam lactis, iam flumina nectaris ibant,\
+flavaque de viridi stillabant ilice mella.
+
+Postquam, Saturno tenebrosa in Tartara misso,\
+sub Iove mundus erat, subiit argentea proles,\
+auro deterior, fulvo pretiosior aere.\
+Iuppiter antiqui contraxit tempora veris\
+perque hiemes aestusque et inaequalis autumnos\
+et breve ver spatiis exegit quattuor annum.\
+Tum primum siccis aer fervoribus ustus\
+canduit, et ventis glacies adstricta pependit.\
+Tum primum subiere domus (domus antra fuerunt\
+et densi frutices et vinctae cortice virgae).\
+Semina tum primum longis Cerealia sulcis\
+obruta sunt, pressique iugo gemuere iuvenci.
+
+Tertia post illam successit aenea proles,\
+saevior ingeniis et ad horrida promptior arma,\
+non scelerata tamen. De duro est ultima ferro.\
+Protinus inrupit venae peioris in aevum\
+omne nefas: fugere pudor verumque fidesque;\
+In quorum subiere locum fraudesque dolique\
+insidiaeque et vis et amor sceleratus habendi.\
+Vela dabat ventis (nec adhuc bene noverat illos)\
+navita; quaeque diu steterant in montibus altis,\
+fluctibus ignotis insultavere carinae,\
+communemque prius ceu lumina solis et auras\
+cautus humum longo signavit limite mensor.\
+Nec tantum segetes alimentaque debita dives\
+poscebatur humus, sed itum est in viscera terrae:\
+quasque recondiderat Stygiisque admoverat umbris,\
+effodiuntur opes, inritamenta malorum.\
+Iamque nocens ferrum ferroque nocentius aurum\
+prodierat: prodit bellum, quod pugnat utroque,\
+sanguineaque manu crepitantia concutit arma.\
+Vivitur ex rapto: non hospes ab hospite tutus,\
+non socer a genero; fratrum quoque gratia rara est.\
+Inminet exitio vir coniugis, illa mariti;\
+lurida terribiles miscent aconita novercae;\
+filius ante diem patrios inquirit in annos.\
+Victa iacet pietas, et virgo caede madentis,\
+ultima caelestum terras Astraea reliquit.

@@ -73,7 +73,7 @@ export function normaliser(texte) {
     .replace(/[\s   ]+/g, "");
 }
 
-const sansMarkdown = (md) => md.replace(/\\\n/g, "\n").replace(/\\([*_\[\]])/g, "$1").replace(/(^|[^\\])[*_]/g, "$1");
+const sansMarkdown = (md) => md.replace(/\\\n/g, "\n").replace(/\\([*_\[\].])/g, "$1").replace(/(^|[^\\])[*_]/g, "$1");
 
 // Renvoie le premier passage introuvable, ou null si tout l'extrait est dans la page.
 // `sansTirets` ignore tirets et traits d'union : tolère les césures de fin de ligne d'un OCR.
