@@ -242,7 +242,7 @@ mark {
 .note-tete { color: var(--accent); font-variant-caps: all-small-caps; letter-spacing: 0.06em; }
 .tour { margin-bottom: 0.25em; }
 .tour-mathieu { color: var(--encre); }
-.note-corps { margin-top: 0.3em; padding-top: 0.3em; border-top: 1px dotted var(--filet); }
+.note-fil + .note-corps { margin-top: 0.3em; padding-top: 0.3em; border-top: 1px dotted var(--filet); }
 .note-locale[data-etat="en attente"] { border-left-style: dashed; }
 .note-actions button, .bouton-question, .panneau-note button {
   font: inherit;

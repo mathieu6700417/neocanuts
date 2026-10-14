@@ -66,10 +66,11 @@ export default function (eleventyConfig) {
       const p = note.publiee;
       return `${appelHtml}<span class="note" id="${id}" role="note"><span class="note-numero">${numero}.</span> ${md.renderInline(p.texte)} ${rendreSources(p.sources)} <span class="note-signature">Note Néocanuts, ${dateFr(p.date)}.</span></span>`;
     }
-    // Les messages de travail de Claude restent dans le fichier ; on ne les montre que
-    // lorsqu'il n'y a pas de note pour répondre (« sans note »).
+    // Le fil reste dans le fichier. On n'en montre que le dernier message quand il n'y a pas
+    // de note à lire : la question en attente, ou l'explication de Claude (« sans note »).
     const fil = note.fil
-      .filter((t, i) => t.auteur !== "Claude" || (note.etat === "sans note" && i === note.fil.length - 1))
+      .slice(-1)
+      .filter(() => ["en attente", "sans note"].includes(note.etat))
       .map((t) => `<span class="tour tour-${t.auteur === "Claude" ? "claude" : "mathieu"}"><b>${t.auteur === "Claude" ? "Claude" : "Vous"}${t.type === "précision" ? " (précision)" : ""} :</b> ${echapper(t.texte)}</span>`)
       .join("");
     const reponse = note.note ? `<span class="note-corps">${md.renderInline(note.note)} ${rendreSources(note.sources)}</span>` : "";
@@ -78,7 +79,7 @@ export default function (eleventyConfig) {
       note.etat === "à relire" ? `<button type="button" data-action="valider" data-id="${note.id}">Valider</button>` : "",
       note.etat !== "en attente" ? `<button type="button" data-action="precision" data-id="${note.id}">Demander une précision</button>` : "",
     ].join(" ");
-    return `${appelHtml}<span class="note note-locale" id="${id}" role="note" data-etat="${note.etat}"><span class="note-tete">${numero} · ${note.etat}</span><span class="note-fil">${fil}</span>${reponse}${enLigne}<span class="note-actions">${actions}</span></span>`;
+    return `${appelHtml}<span class="note note-locale" id="${id}" role="note" data-etat="${note.etat}"><span class="note-tete">${numero}${note.etat === "validée" ? "" : ` · ${note.etat}`}</span>${fil ? `<span class="note-fil">${fil}</span>` : ""}${reponse}${enLigne}<span class="note-actions">${actions}</span></span>`;
   };
 
   // Rend un texte (français ou original) : passage cité dans un <mark>, notes posées.
