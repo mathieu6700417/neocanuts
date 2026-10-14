@@ -237,7 +237,20 @@ mark {
 }
 .note:target { display: block; border-left-color: var(--accent); }
 .note-numero { color: var(--accent); }
-.note-sources, .note-signature { font-style: italic; }
+.note-signature { font-style: italic; }
+.note-sources { font-style: italic; }
+.bascule-sources { position: absolute; opacity: 0; width: 1px; height: 1px; margin: 0; }
+.note-sources label {
+  font-style: normal;
+  font-size: 0.9em;
+  color: var(--accent);
+  cursor: pointer;
+  text-decoration: underline dotted 1px;
+  text-underline-offset: 0.18em;
+}
+.bascule-sources:focus-visible + label { outline: 2px solid var(--accent); outline-offset: 2px; }
+.liste-sources { display: none; }
+.bascule-sources:checked ~ .liste-sources { display: inline; }
 .note-locale > span, .tour { display: block; }
 .note-tete { color: var(--accent); font-variant-caps: all-small-caps; letter-spacing: 0.06em; }
 .note-locale[data-etat="validée"] > .note-tete, .note-locale[data-etat="validée"] > .note-corps { display: inline; }

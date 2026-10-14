@@ -59,13 +59,16 @@ export default function (eleventyConfig) {
   // « 14 octobre 2026 »
   const dateFr = (v) =>
     new Date(`${dateIso(v)}T12:00:00Z`).toLocaleDateString("fr-FR", { day: "numeric", month: "long", year: "numeric", timeZone: "UTC" });
-  const rendreSources = (sources) =>
-    sources?.length ? `<span class="note-sources">Sources : ${sources.map((x) => `<a href="${echapper(x.url)}">${md.renderInline(x.titre)}</a>`).join(", ")}.</span>` : "";
+  // Sources repliées derrière un lien « Sources » : une case à cocher masquée, sans script.
+  const rendreSources = (sources, id) =>
+    sources?.length
+      ? `<span class="note-sources"><input type="checkbox" class="bascule-sources" id="sources-${id}"><label for="sources-${id}">Sources</label><span class="liste-sources"> : ${sources.map((x) => `<a href="${echapper(x.url)}">${md.renderInline(x.titre)}</a>`).join(", ")}.</span></span>`
+      : "";
   const rendreAppel = ({ numero }, id) => `<sup class="appel"><a href="#${id}" id="appel-${id}" aria-label="Note ${numero}">${numero}</a></sup>`;
   const rendreNote = ({ note, numero }, id) => {
     if (!LOCAL) {
       const p = note.publiee;
-      return `<span class="note" id="${id}" role="note"><span class="note-numero">${numero}.</span> ${md.renderInline(p.texte)} ${rendreSources(p.sources)} <span class="note-signature">Note Néocanuts, ${dateFr(p.date)}.</span></span>`;
+      return `<span class="note" id="${id}" role="note"><span class="note-numero">${numero}.</span> ${md.renderInline(p.texte)} ${rendreSources(p.sources, id)} <span class="note-signature">Note Néocanuts, ${dateFr(p.date)}.</span></span>`;
     }
     // Le fil reste dans le fichier. On n'en montre que le dernier message quand il n'y a pas
     // de note à lire : la question en attente, ou l'explication de Claude (« sans note »).
@@ -74,7 +77,7 @@ export default function (eleventyConfig) {
       .filter(() => ["en attente", "sans note"].includes(note.etat))
       .map((t) => `<span class="tour tour-${t.auteur === "Claude" ? "claude" : "mathieu"}"><b>${t.auteur === "Claude" ? "Claude" : "Vous"}${t.type === "précision" ? " (précision)" : ""} :</b> ${echapper(t.texte)}</span>`)
       .join("");
-    const reponse = note.note ? `<span class="note-corps">${md.renderInline(note.note)} ${rendreSources(note.sources)}</span>` : "";
+    const reponse = note.note ? `<span class="note-corps">${md.renderInline(note.note)} ${rendreSources(note.sources, id)}</span>` : "";
     const enLigne = note.publiee && note.etat !== "validée" ? '<span class="note-info">Une version validée reste en ligne.</span>' : "";
     const actions = [
       note.etat === "à relire" ? `<button type="button" data-action="valider" data-id="${note.id}">Valider</button>` : "",
