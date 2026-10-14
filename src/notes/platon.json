@@ -93,12 +93,98 @@
     "id": "n2",
     "texte": "francais",
     "passage": "Ce dieu s’appelle Theuth. On dit qu’il a inventé le premier les nombres, le calcul, [274d] la géométrie et l’astronomie ; les jeux d’échecs, de dés, et l’écriture.",
-    "etat": "en attente",
+    "etat": "validée",
     "fil": [
       {
         "auteur": "Mathieu",
         "type": "question",
         "texte": "Connaît on ce Dieu ?",
+        "date": "2026-10-14"
+      },
+      {
+        "auteur": "Claude",
+        "type": "réponse",
+        "texte": "Faits tirés de l’article Wikipédia « Thot » (nom égyptien, Hermopolis, ibis et babouin, domaines, assimilation à Hermès), rapprochés de 274c–d dans la traduction Cousin.",
+        "date": "2026-10-14"
+      }
+    ],
+    "note": "Theuth est la forme grecque de Thot (Djehouty en égyptien), dieu de Khemenou, que les Grecs appelaient Hermopolis Magna, en Moyenne-Égypte. Les Égyptiens le tenaient pour « le dieu de l’écriture et le scribe des dieux » et le représentaient en ibis ou en babouin : c’est l’oiseau que Platon dit consacré à ce dieu. Dieu de la sagesse, de l’astronomie et de la géométrie, maître des cycles de la Lune, il réunit déjà plusieurs des inventions que lui prête le *Phèdre*. Le monde gréco-romain l’a assimilé à Hermès, notamment sous le nom d’Hermès Trismégiste.",
+    "date": "2026-10-14",
+    "sources": [
+      {
+        "titre": "« Thot », Wikipédia",
+        "url": "https://fr.wikipedia.org/wiki/Thot"
+      },
+      {
+        "titre": "Platon, *Phèdre*, trad. Victor Cousin (Wikisource)",
+        "url": "https://fr.wikisource.org/wiki/Ph%C3%A8dre_(Platon,_trad._Cousin)"
+      }
+    ],
+    "citations": [
+      {
+        "texte": "le dieu de l’écriture et le scribe des dieux",
+        "source_url": "https://fr.wikipedia.org/wiki/Thot"
+      }
+    ],
+    "publiee": {
+      "texte": "Theuth est la forme grecque de Thot (Djehouty en égyptien), dieu de Khemenou, que les Grecs appelaient Hermopolis Magna, en Moyenne-Égypte. Les Égyptiens le tenaient pour « le dieu de l’écriture et le scribe des dieux » et le représentaient en ibis ou en babouin : c’est l’oiseau que Platon dit consacré à ce dieu. Dieu de la sagesse, de l’astronomie et de la géométrie, maître des cycles de la Lune, il réunit déjà plusieurs des inventions que lui prête le *Phèdre*. Le monde gréco-romain l’a assimilé à Hermès, notamment sous le nom d’Hermès Trismégiste.",
+      "sources": [
+        {
+          "titre": "« Thot », Wikipédia",
+          "url": "https://fr.wikipedia.org/wiki/Thot"
+        },
+        {
+          "titre": "Platon, *Phèdre*, trad. Victor Cousin (Wikisource)",
+          "url": "https://fr.wikisource.org/wiki/Ph%C3%A8dre_(Platon,_trad._Cousin)"
+        }
+      ],
+      "citations": [
+        {
+          "texte": "le dieu de l’écriture et le scribe des dieux",
+          "source_url": "https://fr.wikipedia.org/wiki/Thot"
+        }
+      ],
+      "date": "2026-10-14"
+    }
+  },
+  {
+    "id": "n3",
+    "texte": "francais",
+    "passage": "sous la domination de Thamus",
+    "etat": "en attente",
+    "fil": [
+      {
+        "auteur": "Mathieu",
+        "type": "question",
+        "texte": "Est ce que l'on sait à quelle époque ça correspond?",
+        "date": "2026-10-14"
+      }
+    ]
+  },
+  {
+    "id": "n4",
+    "texte": "francais",
+    "passage": "toi, père de l’écriture, par une bienveillance naturelle pour ton ouvrage, tu l’as vu tout autre qu’il n’est : il ne produira que l’oubli dans l’esprit de ceux qui apprennent, en leur faisant négliger la mémoire. En effet, ils laisseront à ces caractères étrangers le soin de leur rappeler ce qu’ils auront confié à l’écriture, et n’en garderont eux-mêmes aucun souvenir. Tu n’as donc point trouvé un moyen pour la mémoire, mais pour la simple réminiscence, et tu n’offres à tes disciples que le nom de la science sans la réalité",
+    "etat": "en attente",
+    "fil": [
+      {
+        "auteur": "Mathieu",
+        "type": "question",
+        "texte": "Est ce que ce débat sur l'écriture a été repensée par d'autres ensuite?",
+        "date": "2026-10-14"
+      }
+    ]
+  },
+  {
+    "id": "n5",
+    "texte": "francais",
+    "passage": "et vraiment il ignore l’oracle d’Ammon",
+    "etat": "en attente",
+    "fil": [
+      {
+        "auteur": "Mathieu",
+        "type": "question",
+        "texte": "C'est à dire ?",
         "date": "2026-10-14"
       }
     ]
