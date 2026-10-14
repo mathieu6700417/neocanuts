@@ -93,8 +93,9 @@ inventée ou déformée le ruinerait.
 7. **Liste des absents.** Une section en bas de page nomme les auteurs écartés
    par cette règle et pourquoi, afin que Mathieu puisse fournir une édition et
    les faire entrer plus tard.
-8. **Droits et licences.** Textes du domaine public ou citations courtes ;
-   traductions Néocanuts sous CC BY-SA 4.0 ; code sous MIT. Le colophon le dit.
+8. **Droits et licences.** Sur la frise, textes du domaine public ou
+   citations courtes ; sur les pages longues, chapitres entiers, auteurs sous
+   droits compris, par choix assumé de Mathieu ; traductions Néocanuts sous CC BY-SA 4.0 ; code sous MIT. Le colophon le dit.
 
 ## Modèle d'une entrée
 
@@ -274,7 +275,8 @@ Branche unique `main`. Le dossier local peut garder son nom actuel
 est hors v1 ; s'il arrive, `PATH_PREFIX` repasse à `/`.
 
 **Licences** : code MIT ; textes cités dans le domaine public ou en citation
-courte ; traductions Néocanuts en CC BY-SA 4.0. Fichier `LICENSE` pour le
+courte sur la frise, chapitres entiers sur les pages longues (voir Pages
+longues) ; traductions Néocanuts en CC BY-SA 4.0. Fichier `LICENSE` pour le
 code, mention des deux autres dans le colophon et le README.
 
 ## Plan de travail
@@ -310,7 +312,8 @@ doc ou directement dans le dépôt.
 Ces idées sont notées pour ne pas être perdues, mais rien ne doit être
 construit pour les préparer.
 
-- Pages individuelles par auteur.
+- Pages individuelles par auteur au-delà des pages longues (biographie,
+  bibliographie).
 - Filtre par thème : le mot-clé est affiché mais pas cliquable.
 - Recherche plein texte.
 - Bascule manuelle clair/sombre.
@@ -319,6 +322,85 @@ construit pour les préparer.
 - Interface en d'autres langues que le français.
 - Domaine personnalisé.
 - Interface d'édition : on ajoute une entrée en écrivant un fichier Markdown.
+
+## Pages longues
+
+Chaque paragraphe de la frise devient un lien vers une page qui donne le
+chapitre entier dont il est extrait, avec le passage cité mis en évidence.
+Décidé le 14 octobre 2026, en dix questions ; le travail se fait sur une
+branche et part en ligne d'un coup.
+
+| # | Question | Décision |
+| --- | --- | --- |
+| 1 | Quel texte long | Un passage élargi de la même œuvre que l'extrait |
+| 2 | Publication | Tout en ligne, auteurs sous droits compris (choix assumé de Mathieu) ; la règle 8 est révisée |
+| 3 | Longueur | Le chapitre entier, sans plafond |
+| 4 | Source | Recherche en ligne par Claude, en français ou dans l'original, vérifiée mot à mot par `npm run verify` |
+| 5 | Repérage | La page s'ouvre au début du chapitre ; passage cité mis en évidence ; lien « Aller au passage cité » en haut |
+| 6 | Langue | Traduction publiée si elle existe, sinon traduction Néocanuts du chapitre « à relire par Mathieu » ; bascule vers l'original |
+| 7 | Clic sur la frise | Tout le paragraphe est un lien |
+| 8 | Mise en place | Tout d'un coup, quand les 58 entrées sont traitées |
+| 9 | Chapitre introuvable | L'entrée reste sur la frise, non cliquable, et figure dans la liste des pages manquantes |
+| 10 | Contenu de la page | En-tête, repères, pied de source et navigation ci-dessous |
+
+**Sources.** Claude cherche le chapitre lui-même : Wikisource, Gallica,
+Gutenberg, archive.org, ctext.org, Perseus, zeno.org, marxists.org, sites
+d'auteurs, d'éditeurs ou de revues. Aucune bibliothèque pirate ni dépôt de
+scans illicites. Le texte est copié depuis `node scripts/texte.js <url>`,
+jamais retapé. Si seul l'original est trouvé, le français est une traduction
+Néocanuts faite depuis cet original.
+
+**Fichier d'un chapitre.** `src/chapitres/<slug>.md`, même slug que l'entrée.
+En-tête YAML : `chapitre` (titre affiché, par exemple « Lettre XC »),
+`source_url` (où le français a été vérifié), `original_url`, `traduction`
+(« traduction Néocanuts, à relire » le cas échéant), `verifie` (date). Corps :
+le chapitre en français, en Markdown. L'original va dans
+`src/chapitres/<slug>.original.md`, inutile si `langue: fr`. Les métadonnées
+d'auteur et d'œuvre restent dans l'entrée et ne sont pas recopiées.
+
+**Passage cité.** Aucun balisage manuel : le build retrouve le paragraphe de
+la frise dans le chapitre, après la normalisation de `verify`, et l'enveloppe
+dans un `<mark>` avec l'ancre `#passage`. Paragraphe introuvable dans le
+chapitre = build en échec. C'est ce qui garantit que la frise et la page
+longue disent la même chose.
+
+**Pages manquantes.** `src/_data/pages_manquantes.json` liste les slugs sans
+chapitre et la raison (« chapitre non publié en ligne », « édition en ligne
+différente de l'extrait »…). `npm run check` exige que chaque entrée ait un
+chapitre ou figure dans cette liste, jamais les deux.
+
+**Sur la frise.** Quand un chapitre existe, le `<blockquote>` de l'extrait est
+enveloppé dans un lien vers `<slug>/`, souligné au survol, avec un intitulé
+accessible « Lire le chapitre : <œuvre> ». La bascule de l'original reste hors
+du lien. Sans chapitre, rien ne change.
+
+**La page longue.**
+
+- Adresse : `/neocanuts/<slug>/`.
+- En-tête : nom et dates de l'auteur, œuvre, chapitre, année, puis la notice
+  de l'entrée.
+- Repères : lien « Aller au passage cité » (`#passage`), bascule français /
+  original, mention de la traduction.
+- Corps : colonne de lecture étroite (environ 65 caractères), typographie et
+  couleurs du site.
+- Pied : source précise et lien, date de vérification, lien vers le texte
+  intégral.
+- Navigation : « ← Retour à la frise » vers `/neocanuts/#<slug>`, et auteur
+  précédent / suivant dans l'ordre chronologique, parmi les entrées qui ont
+  une page.
+
+**Vérification.** `npm run verify <slug>` contrôle aussi le chapitre : le
+français contre `source_url`, l'original contre `original_url`. Comme pour la
+frise, une traduction Néocanuts n'est contrôlée que côté original.
+`npm run links` et `npm run validate` couvrent les nouvelles pages.
+
+**Mise en place.** Branche `pages-longues`. On commence par le gabarit, le
+lien sur la frise et les contrôles, sur trois entrées d'essai (Zhuangzi, le
+Général Ludd, Bernanos). On traite ensuite le corpus par lots de dix dans
+l'ordre chronologique, un commit par lot. Fusion dans `main` quand les 58
+entrées ont un chapitre ou figurent dans les pages manquantes, et que `check`,
+`verify`, `build` et `validate` passent. Restent à Mathieu : relire les
+traductions Néocanuts des chapitres.
 
 ## Candidats au corpus
 
