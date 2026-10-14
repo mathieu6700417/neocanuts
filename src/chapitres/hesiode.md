@@ -1,0 +1,20 @@
+---
+chapitre: "v. 42-105 : Prométhée et Pandore"
+source_url: https://fr.wikisource.org/wiki/Po%C3%A8tes_Moralistes_de_la_Gr%C3%A8ce/Les_Travaux_et_les_Jours
+original_url: https://raw.githubusercontent.com/PerseusDL/canonical-greekLit/master/data/tlg0020/tlg002/tlg0020.tlg002.perseus-grc2.xml
+traduction: "traduction d'Henri Patin, Poètes moralistes de la Grèce, Garnier, 1892"
+verifie: 2026-10-14
+---
+Les dieux ont caché aux hommes les ressources de la vie. Autrement tu aurais pu amasser en un seul jour de quoi te nourrir une année entière, même sans travail ; tu aurais suspendu le gouvernail à la fumée du foyer, et l’on eût vu cesser les travaux des bœufs et des mulets laborieux. Mais Jupiter nous cacha ces ressources, irrité d’avoir été surpris par les ruses de Prométhée. C’est pour cela qu’il prépara aux hommes de si funestes fléaux.
+
+Il leur cacha le feu ; mais le fils de Japet le déroba pour l’usage des mortels, l’enfermant dans la tige d’une férule et trompant ainsi de nouveau le dieu prudent qui lance la foudre. Alors, indigné, Jupiter, le dieu assembleur de nuage, lui dit :
+
+« Fils de Japet, le plus rusé des dieux, tu t’applaudis d’avoir dérobé le feu et trompé mes conseils. Mais ce larcin te sera funeste, à toi et à la race future des mortels. Qu’ils jouissent du feu ; en retour, je leur enverrai un don fatal dont le charme séduira tous les cœurs, épris de leur propre fléau. »
+
+Ainsi dit le père des dieux et des hommes et il sourit. Cependant il ordonne à l’illustre Vulcain de former au plus vite un mélange de terre et d’eau, de lui donner la voix humaine, la force du corps, la figure des déesses immortelles, les grâces d’une vierge. Il veut que Minerve l’exerce aux ouvrages des mains, lui enseigne à former de précieux tissus ; que la belle Vénus répande autour de sa tête la grâce, le désir inquiet, les soucis rongeurs ; que le dieu messager, vainqueur d’Argus, lui donne un esprit impudent et trompeur.
+
+Telle est la volonté du fils de Saturne et les dieux s’empressent d’obéir. Aussitôt, après l’ordre son père, l’illustre Vulcain forme avec de l’argile l’image d’une vierge pudique ; Minerve aux yeux d’azur lui attache sa ceinture et la couvre de riches vêtements ; les Grâces et la déesse de la persuasion lui passent un collier d’or ; les Heures à la belle chevelure la couronnent des fleurs du printemps ; le dieu messager, vainqueur d’Argus, place dans son cœur selon l’ordre de Jupiter, du dieu de la foudre, les doux mensonges, les paroles décevantes, les ruses perfides ; puis il lui donne un nom et l’appelle Pandore, parce que chacun des immortels habitants de l’Olympe avait fait un présent à cet objet fatal, préparé pour la perte des mortels industrieux.
+
+Quand Jupiter a terminé les apprêts de sa ruse terrible et inévitable, il envoie à Épiméthée, pour lui offrir ce funeste don, l’illustre vainqueur d’Argus, le rapide messager des dieux. Épiméthée oublia, en ce moment, le conseil que lui avait donné Prométhée, de ne rien recevoir du maître de l’Olympe et de lui renvoyer tous ses dons, dans la crainte de quelque malheur pour les mortels. Il reçut le présent de Jupiter, et, lorsqu’il en fut possesseur, alors seulement il sentit toute son imprudence.
+
+Auparavant, la race humaine vivait sur la terre loin de tous les maux, loin de la peine, de la fatigue, des tristes maladies, qui ont apporté aux hommes la vieillesse et la mort (car les hommes vieillissent vite dans l’affliction). Mais Pandore, découvrant de ses mains un vase qu’elle portait, laissa échapper tous ces fléaux et les répandit sur les mortels. L’Espérance seule y resta captive, errant sur les bords du vase, prête à s’envoler ; car Pandore le referma sur-le-champ, d’après l’ordre du grand Jupiter. Depuis ce temps, mille fléaux divers parcourent la demeure des mortels ; la terre est pleine de maux, la mer en est pleine ; les maladies viennent d’elles-mêmes nous visiter et, le jour, la nuit, nous apportent la douleur ; elles viennent en silence, car le prudent Jupiter leur a ôté la voix. (Il n’est donc pas possible de se soustraire aux décrets de Jupiter.)

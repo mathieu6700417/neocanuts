@@ -43,28 +43,32 @@ function entite(tout, nom) {
 // Un exposant qui n'est qu'un appel de note : « 1 », « (2) », « [a] », « * ».
 const APPEL_DE_NOTE = /^\s*(\[[^\]]{1,5}\]|\(?\d+\)?|[*†‡])\s*$/;
 
-// HTML → texte brut : sans scripts, styles, appels de note ni numéros de page.
+// HTML → texte brut : sans scripts, styles, appels de note, numéros de page, de vers ni de verset.
 export function texteDe(html) {
   return html
     .replace(/<(script|style|noscript)\b[^>]*>[\s\S]*?<\/\1>/gi, "")
     .replace(/<sup\b([^>]*)>([\s\S]*?)<\/sup>/gi, (tout, attributs, contenu) =>
-      /reference|footnote|note/i.test(attributs) || APPEL_DE_NOTE.test(contenu.replace(/<[^>]+>/g, "")) ? "" : contenu,
+      /reference|footnote|note|verset-num/i.test(attributs) || APPEL_DE_NOTE.test(contenu.replace(/<[^>]+>/g, "")) ? "" : contenu,
     )
     .replace(/<span[^>]*class="[^"]*(pagenum|ws-noexport|mw-editsection|reference|zeilennummer|linenum|line-number)[^"]*"[^>]*>[\s\S]*?<\/span>/gi, "")
+    // Wikisource grec : numéros de vers (id="v45") et repères Stephanus (id="p322b").
+    .replace(/<span[^>]*\bid="(v\d+|p\d+[a-e]?)"[^>]*>[\s\S]*?<\/span>/gi, "")
+    // Mechon Mamre : numéros de versets en lettres hébraïques, en gras (« כב », ou « ב,ח » sur la page d'un livre entier).
+    .replace(/<b>([\u05d0-\u05ea]{1,3},)?[\u05d0-\u05ea]{1,3}<\/b>/gi, "")
     .replace(/<[^>]+>/g, "")
     .replace(/&#x([0-9a-f]+);/gi, (_, h) => String.fromCodePoint(parseInt(h, 16)))
     .replace(/&#(\d+);/g, (_, d) => String.fromCodePoint(Number(d)))
     .replace(/&([a-zA-Z]+);/g, entite);
 }
 
-// Neutralise ce qui n'est pas un mot : espaces, forme des guillemets, apostrophes et tirets.
+// Neutralise ce qui n'est pas un mot : espaces, forme des guillemets, apostrophes et tirets (maqaf hébreu compris).
 export function normaliser(texte) {
   return texte
     .normalize("NFKC")
     .replace(/[­​-‍﻿]/g, "")
     .replace(/[’‘ʼ′`]/g, "'")
     .replace(/[«»“”„‟]/g, '"')
-    .replace(/[‐‑‒–—―]/g, "-")
+    .replace(/[‐‑‒–—―\u05be]/g, "-")
     .replace(/…/g, "...")
     .replace(/[\s   ]+/g, "");
 }

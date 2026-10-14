@@ -98,7 +98,7 @@ lecture », et `.claude/skills/notes/SKILL.md`.
 
 ### Règles
 
-- Un auteur, une entrée, un seul paragraphe de 60 à 200 mots (150 au plus
+- Une entrée, un seul paragraphe de 60 à 200 mots (150 au plus
   pour un auteur sous droits).
 - Une coupe se signale par `[…]` ; `verify` contrôle chaque passage, dans
   l'ordre.

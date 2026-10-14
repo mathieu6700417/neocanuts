@@ -10,7 +10,7 @@ permalink: /
 {%- if epoque.cle == courante.cle %}
 <ol>
 {%- for entree in epoque.entrees %}
-<li><a href="#{{ entree.data.slug }}">{{ entree.data.nom | insecables }}</a></li>
+<li><a href="#{{ entree.data.slug }}">{{ (entree.data.sommaire or entree.data.nom) | insecables }}</a></li>
 {%- endfor %}
 </ol>
 {%- endif %}</li>
@@ -31,7 +31,7 @@ permalink: /
 <li><a href="#epoque-{{ epoque.cle }}">{{ epoque.libelle }}</a>
 <ol>
 {%- for entree in epoque.entrees %}
-<li><a href="#{{ entree.data.slug }}">{{ entree.data.nom | insecables }}</a></li>
+<li><a href="#{{ entree.data.slug }}">{{ (entree.data.sommaire or entree.data.nom) | insecables }}</a></li>
 {%- endfor %}
 </ol></li>
 {%- endfor %}

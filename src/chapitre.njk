@@ -41,7 +41,7 @@ eleventyComputed:
 {%- if longue.htmlOriginal %}
 <div id="original" class="texte texte-original">
 <p class="reperes-original"><a href="#francais">Revenir au français</a> · <a href="#passage-original">Aller au passage cité</a></p>
-<div lang="{{ d.langue }}"{% if local %} data-texte="original"{% endif %}>
+<div lang="{{ d.langue }}"{% if d.langue == "he" %} dir="rtl"{% endif %}{% if local %} data-texte="original"{% endif %}>
 {{ longue.htmlOriginal | safe }}
 </div>
 </div>

@@ -1,6 +1,7 @@
 ---
 nom: Platon
 slug: platon
+sommaire: "Platon, Phèdre"
 naissance: -428
 mort: -348
 dates_affichees: "v. 428–348 av. J.-C."

@@ -18,7 +18,7 @@
 {%- if d.original %}
 <details class="original">
 <summary>Texte original</summary>
-<p lang="{{ d.langue }}">{{ d.original | trim }}</p>
+<p lang="{{ d.langue }}"{% if d.langue == "he" %} dir="rtl"{% endif %}>{{ d.original | trim }}</p>
 </details>
 {%- endif %}
 <p class="liens">

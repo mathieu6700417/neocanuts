@@ -53,8 +53,13 @@ non par la naissance de l'auteur.
 
 - Cible de cinquante entrées pour la v1, quarante au minimum pour publier, pas
   de maximum.
-- Un auteur, une entrée, un seul extrait. Un collectif ou un anonyme (le
-  « général Ludd », L'Écho de la Fabrique) compte comme un auteur.
+- Une entrée, un seul extrait. Un auteur peut avoir plusieurs entrées
+  (décision de Mathieu, 14 octobre 2026) : chacune a son propre slug,
+  `<auteur>-<œuvre>` (`platon-protagoras`, `genese-babel`), et le même `nom` ;
+  le champ facultatif `sommaire` (« Platon, Protagoras ») les distingue
+  dans le sommaire.
+  Un collectif ou un anonyme (le « général Ludd », L'Écho de la Fabrique, la
+  Genèse) compte comme un auteur.
 - Incontournables validés par Mathieu : Zhuangzi, les luddites, les canuts,
   Bernanos, Simone Weil, Thoreau, Ruskin, Butler, Ellul, Illich, Anders,
   Kaczynski, Pièces et Main d'Œuvre. Ils n'entrent que s'ils passent la règle
