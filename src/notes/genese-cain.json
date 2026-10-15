@@ -88,5 +88,19 @@
       ],
       "date": "2026-10-15"
     }
+  },
+  {
+    "id": "n2",
+    "texte": "francais",
+    "passage": "J’ai tué un homme pour ma blessure,\n\net un jeune homme pour ma meurtrissure.",
+    "etat": "en attente",
+    "fil": [
+      {
+        "auteur": "Mathieu",
+        "type": "question",
+        "texte": "Explique",
+        "date": "2026-10-15"
+      }
+    ]
   }
 ]

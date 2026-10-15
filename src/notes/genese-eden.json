@@ -3,7 +3,7 @@
     "id": "n1",
     "texte": "francais",
     "passage": "l’arbre de la connaissance du bien et du mal.",
-    "etat": "à relire",
+    "etat": "validée",
     "fil": [
       {
         "auteur": "Mathieu",
@@ -85,19 +85,31 @@
     ],
     "date": "2026-10-15",
     "publiee": {
-      "texte": "Le texte hébreu porte bien les deux mots : *ets ha-da'at tov va-ra*, où *tov va-ra* signifie littéralement bien et mal. Les traductions gardent donc la paire et ne varient que sur les mots : Segond écrit « du bien et du mal », la TOB « l'arbre de la connaissance de ce qui est bon ou mauvais ». Dire simplement « arbre de la connaissance » est un raccourci d'usage, non une autre lecture. La vraie question est le sens. La paire peut être un mérisme, deux contraires réunis pour dire « tout » : ce serait alors la connaissance de toute chose. Les spécialistes y lisent aussi la sagesse, le discernement moral, le savoir sexuel ou la maturité. Plus loin, Dieu constate que l'homme est devenu « comme l’un de nous, pour la connaissance du bien et du mal ».",
+      "texte": "L’hébreu porte bien les deux mots, *ets ha-da'at tov va-ra* ; Segond traduit « du bien et du mal », la TOB « de ce qui est bon ou mauvais ». Plusieurs indices font lire un mérisme, deux contraires réunis pour dire « tout ». La Bible en use souvent : dès le premier verset, « les cieux et la terre » désignent l’univers. L’égyptien disait de même *mal-bien* pour « tout ». Surtout, dans le deuxième livre de Samuel, une femme loue le roi, « prêt à entendre le bien et le mal », puis le dit sage « pour connaître tout ce qui se passe sur la terre » : la paire y vaut pour un savoir total. À l’inverse, le Deutéronome parle d’enfants qui « ne connaissent aujourd’hui ni le bien ni le mal », ce qui oriente vers la maturité. Les spécialistes restent partagés.",
       "sources": [
-        {
-          "titre": "« Arbre de la connaissance du bien et du mal », Wikipédia",
-          "url": "https://fr.wikipedia.org/wiki/Arbre_de_la_connaissance_du_bien_et_du_mal"
-        },
         {
           "titre": "« Tree of the knowledge of good and evil », Wikipédia en anglais",
           "url": "https://en.wikipedia.org/wiki/Tree_of_the_knowledge_of_good_and_evil"
         },
         {
+          "titre": "« Merism », Wikipédia en anglais",
+          "url": "https://en.wikipedia.org/wiki/Merism"
+        },
+        {
+          "titre": "« Arbre de la connaissance du bien et du mal », Wikipédia",
+          "url": "https://fr.wikipedia.org/wiki/Arbre_de_la_connaissance_du_bien_et_du_mal"
+        },
+        {
           "titre": "Genèse, trad. Louis Segond 1910 (Wikisource)",
           "url": "https://fr.wikisource.org/wiki/Bible_Segond_1910/Gen%C3%A8se"
+        },
+        {
+          "titre": "Deuxième livre de Samuel, trad. Louis Segond 1910 (Wikisource)",
+          "url": "https://fr.wikisource.org/wiki/Bible_Segond_1910/Deuxi%C3%A8me_livre_de_Samuel"
+        },
+        {
+          "titre": "Deutéronome, trad. Louis Segond 1910 (Wikisource)",
+          "url": "https://fr.wikisource.org/wiki/Bible_Segond_1910/Deut%C3%A9ronome"
         }
       ],
       "citations": [
@@ -106,16 +118,24 @@
           "source_url": "https://fr.wikisource.org/wiki/Bible_Segond_1910/Gen%C3%A8se"
         },
         {
-          "texte": "l'arbre de la connaissance de ce qui est bon ou mauvais",
+          "texte": "de ce qui est bon ou mauvais",
           "source_url": "https://fr.wikipedia.org/wiki/Arbre_de_la_connaissance_du_bien_et_du_mal"
         },
         {
-          "texte": "arbre de la connaissance",
-          "source_url": "https://fr.wikipedia.org/wiki/Arbre_de_la_connaissance_du_bien_et_du_mal"
-        },
-        {
-          "texte": "comme l’un de nous, pour la connaissance du bien et du mal",
+          "texte": "les cieux et la terre",
           "source_url": "https://fr.wikisource.org/wiki/Bible_Segond_1910/Gen%C3%A8se"
+        },
+        {
+          "texte": "prêt à entendre le bien et le mal",
+          "source_url": "https://fr.wikisource.org/wiki/Bible_Segond_1910/Deuxi%C3%A8me_livre_de_Samuel"
+        },
+        {
+          "texte": "pour connaître tout ce qui se passe sur la terre",
+          "source_url": "https://fr.wikisource.org/wiki/Bible_Segond_1910/Deuxi%C3%A8me_livre_de_Samuel"
+        },
+        {
+          "texte": "ne connaissent aujourd’hui ni le bien ni le mal",
+          "source_url": "https://fr.wikisource.org/wiki/Bible_Segond_1910/Deut%C3%A9ronome"
         }
       ],
       "date": "2026-10-15"
