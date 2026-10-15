@@ -3,14 +3,90 @@
     "id": "n1",
     "texte": "francais",
     "passage": "L’Éternel lui dit : Si quelqu’un tuait Caïn, Caïn serait vengé sept fois.",
-    "etat": "en attente",
+    "etat": "validée",
     "fil": [
       {
         "auteur": "Mathieu",
         "type": "question",
         "texte": "Explique c'est difficile à suire là non?",
         "date": "2026-10-15"
+      },
+      {
+        "auteur": "Claude",
+        "type": "réponse",
+        "date": "2026-10-15",
+        "texte": "Contexte relu dans la Segond (Genèse 4, 13-15 et 4, 24) ; la Crampon de Wikisource donne la même formule. Sens de la protection et lecture rabbinique (Genèse Rabba 22) dans les articles Wikipédia « Caïn » et « Marque de Caïn ». Je n’avance pas de sens symbolique du nombre sept : les sources consultées n’en donnent pas."
       }
-    ]
+    ],
+    "note": "La phrase répond à la peur que Caïn vient de dire. Chassé, condamné à être « errant et vagabond », il redoute le premier venu : « quiconque me trouvera me tuera ». Dieu ne lève pas la peine, mais il prend Caïn sous sa protection. Être « vengé sept fois » veut dire que celui qui le tuerait subirait une vengeance sept fois plus lourde que son crime : la menace suffit à détourner les meurtriers. Le signe que Dieu pose ensuite sur Caïn rend cette protection visible. L’exégèse juive y voit surtout une sauvegarde accordée à un pénitent. Plus loin, son descendant Lémec reprend la formule en la portant à « soixante-dix-sept fois ».",
+    "sources": [
+      {
+        "titre": "Genèse, trad. Louis Segond 1910 (Wikisource)",
+        "url": "https://fr.wikisource.org/wiki/Bible_Segond_1910/Gen%C3%A8se"
+      },
+      {
+        "titre": "« Caïn », Wikipédia",
+        "url": "https://fr.wikipedia.org/wiki/Ca%C3%AFn"
+      },
+      {
+        "titre": "« Marque de Caïn », Wikipédia",
+        "url": "https://fr.wikipedia.org/wiki/Signe_de_Ca%C3%AFn"
+      }
+    ],
+    "citations": [
+      {
+        "texte": "errant et vagabond",
+        "source_url": "https://fr.wikisource.org/wiki/Bible_Segond_1910/Gen%C3%A8se"
+      },
+      {
+        "texte": "quiconque me trouvera me tuera",
+        "source_url": "https://fr.wikisource.org/wiki/Bible_Segond_1910/Gen%C3%A8se"
+      },
+      {
+        "texte": "vengé sept fois",
+        "source_url": "https://fr.wikisource.org/wiki/Bible_Segond_1910/Gen%C3%A8se"
+      },
+      {
+        "texte": "soixante-dix-sept fois",
+        "source_url": "https://fr.wikisource.org/wiki/Bible_Segond_1910/Gen%C3%A8se"
+      }
+    ],
+    "date": "2026-10-15",
+    "publiee": {
+      "texte": "La phrase répond à la peur que Caïn vient de dire. Chassé, condamné à être « errant et vagabond », il redoute le premier venu : « quiconque me trouvera me tuera ». Dieu ne lève pas la peine, mais il prend Caïn sous sa protection. Être « vengé sept fois » veut dire que celui qui le tuerait subirait une vengeance sept fois plus lourde que son crime : la menace suffit à détourner les meurtriers. Le signe que Dieu pose ensuite sur Caïn rend cette protection visible. L’exégèse juive y voit surtout une sauvegarde accordée à un pénitent. Plus loin, son descendant Lémec reprend la formule en la portant à « soixante-dix-sept fois ».",
+      "sources": [
+        {
+          "titre": "Genèse, trad. Louis Segond 1910 (Wikisource)",
+          "url": "https://fr.wikisource.org/wiki/Bible_Segond_1910/Gen%C3%A8se"
+        },
+        {
+          "titre": "« Caïn », Wikipédia",
+          "url": "https://fr.wikipedia.org/wiki/Ca%C3%AFn"
+        },
+        {
+          "titre": "« Marque de Caïn », Wikipédia",
+          "url": "https://fr.wikipedia.org/wiki/Signe_de_Ca%C3%AFn"
+        }
+      ],
+      "citations": [
+        {
+          "texte": "errant et vagabond",
+          "source_url": "https://fr.wikisource.org/wiki/Bible_Segond_1910/Gen%C3%A8se"
+        },
+        {
+          "texte": "quiconque me trouvera me tuera",
+          "source_url": "https://fr.wikisource.org/wiki/Bible_Segond_1910/Gen%C3%A8se"
+        },
+        {
+          "texte": "vengé sept fois",
+          "source_url": "https://fr.wikisource.org/wiki/Bible_Segond_1910/Gen%C3%A8se"
+        },
+        {
+          "texte": "soixante-dix-sept fois",
+          "source_url": "https://fr.wikisource.org/wiki/Bible_Segond_1910/Gen%C3%A8se"
+        }
+      ],
+      "date": "2026-10-15"
+    }
   }
 ]
