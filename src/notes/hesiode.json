@@ -1,0 +1,72 @@
+[
+  {
+    "id": "n1",
+    "texte": "francais",
+    "passage": "tu aurais suspendu le gouvernail à la fumée du foyer",
+    "etat": "en attente",
+    "fil": [
+      {
+        "auteur": "Mathieu",
+        "type": "question",
+        "texte": "Explique cette phrase",
+        "date": "2026-10-15"
+      }
+    ]
+  },
+  {
+    "id": "n2",
+    "texte": "francais",
+    "passage": "Mais Jupiter nous cacha ces ressources, irrité d’avoir été surpris par les ruses de Prométhée.",
+    "etat": "en attente",
+    "fil": [
+      {
+        "auteur": "Mathieu",
+        "type": "question",
+        "texte": "Raconte rapidement quelles sont ces ruses",
+        "date": "2026-10-15"
+      }
+    ]
+  },
+  {
+    "id": "n3",
+    "texte": "francais",
+    "passage": "que le dieu messager, vainqueur d’Argus,",
+    "etat": "en attente",
+    "fil": [
+      {
+        "auteur": "Mathieu",
+        "type": "question",
+        "texte": "C'est qui ?",
+        "date": "2026-10-15"
+      }
+    ]
+  },
+  {
+    "id": "n4",
+    "texte": "francais",
+    "passage": "il envoie à Épiméthée",
+    "etat": "en attente",
+    "fil": [
+      {
+        "auteur": "Mathieu",
+        "type": "question",
+        "texte": "C'est qui?",
+        "date": "2026-10-15"
+      }
+    ]
+  },
+  {
+    "id": "n5",
+    "texte": "francais",
+    "passage": "le fils de Japet",
+    "etat": "en attente",
+    "fil": [
+      {
+        "auteur": "Mathieu",
+        "type": "question",
+        "texte": "C'est qui?",
+        "date": "2026-10-15"
+      }
+    ]
+  }
+]
