@@ -103,12 +103,13 @@ function remplacerCle(entete, cle, lignes) {
   entete.splice(debut, fin - debut, ...lignes);
 }
 
-// Bloc YAML replié (`>`), lignes de 76 caractères au plus, comme les notices existantes.
+// Bloc YAML replié (`>`), lignes de 76 caractères au plus, comme les notices existantes ;
+// une ponctuation haute (; : ! ? ») reste sur la ligne du mot qui la précède.
 function blocReplie(cle, texte) {
   const lignes = [];
   let ligne = "";
   for (const mot of texte.trim().split(/\s+/)) {
-    if (ligne && ligne.length + 1 + mot.length > 76) {
+    if (ligne && ligne.length + 1 + mot.length > 76 && !/^[;:!?»]/.test(mot)) {
       lignes.push(`  ${ligne}`);
       ligne = mot;
     } else ligne = ligne ? `${ligne} ${mot}` : mot;
