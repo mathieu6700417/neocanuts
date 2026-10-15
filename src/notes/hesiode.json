@@ -3,70 +3,306 @@
     "id": "n1",
     "texte": "francais",
     "passage": "tu aurais suspendu le gouvernail à la fumée du foyer",
-    "etat": "en attente",
+    "etat": "validée",
     "fil": [
       {
         "auteur": "Mathieu",
         "type": "question",
         "texte": "Explique cette phrase",
         "date": "2026-10-15"
+      },
+      {
+        "auteur": "Claude",
+        "type": "réponse",
+        "texte": "Passage relu dans la traduction de Patin (Wikisource). Hésiode emploie la même image plus loin, dans les conseils sur la navigation : on remise le navire l’hiver et on suspend le gouvernail au-dessus du foyer jusqu’à la belle saison. Je n’affirme pas pourquoi la fumée (séchage, conservation) : la source ne le dit pas.",
+        "date": "2026-10-15"
       }
-    ]
+    ],
+    "note": "Le gouvernail suspendu au-dessus du foyer est celui d’un navire qu’on ne sort plus. Hésiode donne lui-même la clé plus loin, dans ses conseils sur la navigation : l’hiver, on tire le bateau au sec, on range ses agrès, puis, conseille-t-il, « suspends son gouvernail à la fumée de ton foyer », en attendant la saison où l’on navigue. Ici, l’image dit un monde sans peine : si les dieux n’avaient pas caché aux hommes leurs moyens de vivre, un jour de travail nourrirait une année. Plus besoin de naviguer pour commercer, ni de labourer avec bœufs et mulets : le gouvernail resterait accroché pour toujours.",
+    "sources": [
+      {
+        "titre": "Hésiode, *Les Travaux et les Jours*, trad. Henri Patin (Wikisource)",
+        "url": "https://fr.wikisource.org/wiki/Po%C3%A8tes_Moralistes_de_la_Gr%C3%A8ce/Les_Travaux_et_les_Jours"
+      }
+    ],
+    "citations": [
+      {
+        "texte": "suspends son gouvernail à la fumée de ton foyer",
+        "source_url": "https://fr.wikisource.org/wiki/Po%C3%A8tes_Moralistes_de_la_Gr%C3%A8ce/Les_Travaux_et_les_Jours"
+      }
+    ],
+    "date": "2026-10-15",
+    "publiee": {
+      "texte": "Le gouvernail suspendu au-dessus du foyer est celui d’un navire qu’on ne sort plus. Hésiode donne lui-même la clé plus loin, dans ses conseils sur la navigation : l’hiver, on tire le bateau au sec, on range ses agrès, puis, conseille-t-il, « suspends son gouvernail à la fumée de ton foyer », en attendant la saison où l’on navigue. Ici, l’image dit un monde sans peine : si les dieux n’avaient pas caché aux hommes leurs moyens de vivre, un jour de travail nourrirait une année. Plus besoin de naviguer pour commercer, ni de labourer avec bœufs et mulets : le gouvernail resterait accroché pour toujours.",
+      "sources": [
+        {
+          "titre": "Hésiode, *Les Travaux et les Jours*, trad. Henri Patin (Wikisource)",
+          "url": "https://fr.wikisource.org/wiki/Po%C3%A8tes_Moralistes_de_la_Gr%C3%A8ce/Les_Travaux_et_les_Jours"
+        }
+      ],
+      "citations": [
+        {
+          "texte": "suspends son gouvernail à la fumée de ton foyer",
+          "source_url": "https://fr.wikisource.org/wiki/Po%C3%A8tes_Moralistes_de_la_Gr%C3%A8ce/Les_Travaux_et_les_Jours"
+        }
+      ],
+      "date": "2026-10-15"
+    }
   },
   {
     "id": "n2",
     "texte": "francais",
     "passage": "Mais Jupiter nous cacha ces ressources, irrité d’avoir été surpris par les ruses de Prométhée.",
-    "etat": "en attente",
+    "etat": "validée",
     "fil": [
       {
         "auteur": "Mathieu",
         "type": "question",
         "texte": "Raconte rapidement quelles sont ces ruses",
         "date": "2026-10-15"
+      },
+      {
+        "auteur": "Claude",
+        "type": "réponse",
+        "texte": "Récit de Méconé lu dans l’article Wikipédia « Prométhée » (version d’Hésiode, Théogonie) ; le chapitre lui-même dit que Prométhée trompe Zeus « de nouveau » en volant le feu, ce qui renvoie à cette première ruse.",
+        "date": "2026-10-15"
       }
-    ]
+    ],
+    "note": "Hésiode fait allusion à deux tromperies, racontées dans la *Théogonie*. D’abord le « partage de Méconé » : Prométhée sacrifie un bœuf et en fait deux parts. L’une, appétissante en apparence, cache la graisse et les os ; l’autre, d’aspect moins engageant, contient les meilleurs morceaux. Zeus choisit la première. Depuis, les hommes brûlent pour les dieux la graisse et les os et mangent la viande. Irrité, Zeus prive les hommes du feu ; Prométhée le dérobe et le leur rapporte caché dans une tige de férule, ce que le texte appelle tromper le dieu « de nouveau ». La riposte de Zeus est Pandore.",
+    "sources": [
+      {
+        "titre": "« Prométhée », Wikipédia",
+        "url": "https://fr.wikipedia.org/wiki/Prom%C3%A9th%C3%A9e"
+      },
+      {
+        "titre": "Hésiode, *Les Travaux et les Jours*, trad. Henri Patin (Wikisource)",
+        "url": "https://fr.wikisource.org/wiki/Po%C3%A8tes_Moralistes_de_la_Gr%C3%A8ce/Les_Travaux_et_les_Jours"
+      }
+    ],
+    "citations": [
+      {
+        "texte": "partage de Méconé",
+        "source_url": "https://fr.wikipedia.org/wiki/Prom%C3%A9th%C3%A9e"
+      },
+      {
+        "texte": "de nouveau",
+        "source_url": "https://fr.wikisource.org/wiki/Po%C3%A8tes_Moralistes_de_la_Gr%C3%A8ce/Les_Travaux_et_les_Jours"
+      }
+    ],
+    "date": "2026-10-15",
+    "publiee": {
+      "texte": "Hésiode fait allusion à deux tromperies, racontées dans la *Théogonie*. D’abord le « partage de Méconé » : Prométhée sacrifie un bœuf et en fait deux parts. L’une, appétissante en apparence, cache la graisse et les os ; l’autre, d’aspect moins engageant, contient les meilleurs morceaux. Zeus choisit la première. Depuis, les hommes brûlent pour les dieux la graisse et les os et mangent la viande. Irrité, Zeus prive les hommes du feu ; Prométhée le dérobe et le leur rapporte caché dans une tige de férule, ce que le texte appelle tromper le dieu « de nouveau ». La riposte de Zeus est Pandore.",
+      "sources": [
+        {
+          "titre": "« Prométhée », Wikipédia",
+          "url": "https://fr.wikipedia.org/wiki/Prom%C3%A9th%C3%A9e"
+        },
+        {
+          "titre": "Hésiode, *Les Travaux et les Jours*, trad. Henri Patin (Wikisource)",
+          "url": "https://fr.wikisource.org/wiki/Po%C3%A8tes_Moralistes_de_la_Gr%C3%A8ce/Les_Travaux_et_les_Jours"
+        }
+      ],
+      "citations": [
+        {
+          "texte": "partage de Méconé",
+          "source_url": "https://fr.wikipedia.org/wiki/Prom%C3%A9th%C3%A9e"
+        },
+        {
+          "texte": "de nouveau",
+          "source_url": "https://fr.wikisource.org/wiki/Po%C3%A8tes_Moralistes_de_la_Gr%C3%A8ce/Les_Travaux_et_les_Jours"
+        }
+      ],
+      "date": "2026-10-15"
+    }
   },
   {
     "id": "n3",
     "texte": "francais",
     "passage": "que le dieu messager, vainqueur d’Argus,",
-    "etat": "en attente",
+    "etat": "validée",
     "fil": [
       {
         "auteur": "Mathieu",
         "type": "question",
         "texte": "C'est qui ?",
         "date": "2026-10-15"
+      },
+      {
+        "auteur": "Claude",
+        "type": "réponse",
+        "texte": "Identification par l’article Wikipédia « Hermès » : épiclèse Argeiphontès, « tueur d’Argos », meurtre d’Argos gardien d’Io selon le pseudo-Apollodore, interprétation discutée. Patin traduit les noms grecs par leurs équivalents latins (Jupiter, Vulcain, Minerve), d’où Mercure dans la tradition latine.",
+        "date": "2026-10-15"
       }
-    ]
+    ],
+    "note": "C’est Hermès, le messager des dieux, que les Romains assimilaient à Mercure ; Patin, comme pour Jupiter, Vulcain ou Minerve, emprunte ses noms à la tradition latine. Le « vainqueur d’Argus » traduit l’épithète grecque *Argeiphontès*, que l’on comprend comme « tueur d’Argos ». Selon le récit rapporté par le pseudo-Apollodore, Héra avait placé Argos aux cent yeux pour surveiller Io ; Hermès, chargé par Zeus de l’enlever, le tua. Le sens de l’épithète reste discuté : Homère l’emploie déjà, alors que la légende d’Argos est sans doute plus tardive.",
+    "sources": [
+      {
+        "titre": "« Hermès », Wikipédia",
+        "url": "https://fr.wikipedia.org/wiki/Herm%C3%A8s"
+      },
+      {
+        "titre": "Hésiode, *Les Travaux et les Jours*, trad. Henri Patin (Wikisource)",
+        "url": "https://fr.wikisource.org/wiki/Po%C3%A8tes_Moralistes_de_la_Gr%C3%A8ce/Les_Travaux_et_les_Jours"
+      }
+    ],
+    "citations": [
+      {
+        "texte": "vainqueur d’Argus",
+        "source_url": "https://fr.wikisource.org/wiki/Po%C3%A8tes_Moralistes_de_la_Gr%C3%A8ce/Les_Travaux_et_les_Jours"
+      },
+      {
+        "texte": "tueur d’Argos",
+        "source_url": "https://fr.wikipedia.org/wiki/Herm%C3%A8s"
+      }
+    ],
+    "date": "2026-10-15",
+    "publiee": {
+      "texte": "C’est Hermès, le messager des dieux, que les Romains assimilaient à Mercure ; Patin, comme pour Jupiter, Vulcain ou Minerve, emprunte ses noms à la tradition latine. Le « vainqueur d’Argus » traduit l’épithète grecque *Argeiphontès*, que l’on comprend comme « tueur d’Argos ». Selon le récit rapporté par le pseudo-Apollodore, Héra avait placé Argos aux cent yeux pour surveiller Io ; Hermès, chargé par Zeus de l’enlever, le tua. Le sens de l’épithète reste discuté : Homère l’emploie déjà, alors que la légende d’Argos est sans doute plus tardive.",
+      "sources": [
+        {
+          "titre": "« Hermès », Wikipédia",
+          "url": "https://fr.wikipedia.org/wiki/Herm%C3%A8s"
+        },
+        {
+          "titre": "Hésiode, *Les Travaux et les Jours*, trad. Henri Patin (Wikisource)",
+          "url": "https://fr.wikisource.org/wiki/Po%C3%A8tes_Moralistes_de_la_Gr%C3%A8ce/Les_Travaux_et_les_Jours"
+        }
+      ],
+      "citations": [
+        {
+          "texte": "vainqueur d’Argus",
+          "source_url": "https://fr.wikisource.org/wiki/Po%C3%A8tes_Moralistes_de_la_Gr%C3%A8ce/Les_Travaux_et_les_Jours"
+        },
+        {
+          "texte": "tueur d’Argos",
+          "source_url": "https://fr.wikipedia.org/wiki/Herm%C3%A8s"
+        }
+      ],
+      "date": "2026-10-15"
+    }
   },
   {
     "id": "n4",
     "texte": "francais",
     "passage": "il envoie à Épiméthée",
-    "etat": "en attente",
+    "etat": "validée",
     "fil": [
       {
         "auteur": "Mathieu",
         "type": "question",
         "texte": "C'est qui?",
         "date": "2026-10-15"
+      },
+      {
+        "auteur": "Claude",
+        "type": "réponse",
+        "texte": "Article Wikipédia « Épiméthée » : Titan, fils de Japet et de Clymène, frère de Prométhée, nom signifiant « qui réfléchit après coup », accepte Pandore offerte par Hermès malgré l’avertissement. Le chapitre confirme l’oubli du conseil de Prométhée.",
+        "date": "2026-10-15"
       }
-    ]
+    ],
+    "note": "Épiméthée est un Titan, fils de Japet et frère de Prométhée. Son nom grec signifie « qui réfléchit après coup » : les deux frères incarnent « la prévoyance et l’étourderie ». Hésiode le montre fidèle à ce nom. Prométhée lui avait conseillé de ne rien accepter de Zeus et de lui renvoyer tous ses présents ; Épiméthée l’oublie, reçoit Pandore que lui amène Hermès, et ne sent son imprudence qu’une fois le présent entre ses mains. Pandore devient son épouse.",
+    "sources": [
+      {
+        "titre": "« Épiméthée », Wikipédia",
+        "url": "https://fr.wikipedia.org/wiki/%C3%89pim%C3%A9th%C3%A9e"
+      },
+      {
+        "titre": "Hésiode, *Les Travaux et les Jours*, trad. Henri Patin (Wikisource)",
+        "url": "https://fr.wikisource.org/wiki/Po%C3%A8tes_Moralistes_de_la_Gr%C3%A8ce/Les_Travaux_et_les_Jours"
+      }
+    ],
+    "citations": [
+      {
+        "texte": "qui réfléchit après coup",
+        "source_url": "https://fr.wikipedia.org/wiki/%C3%89pim%C3%A9th%C3%A9e"
+      },
+      {
+        "texte": "la prévoyance et l’étourderie",
+        "source_url": "https://fr.wikipedia.org/wiki/%C3%89pim%C3%A9th%C3%A9e"
+      }
+    ],
+    "date": "2026-10-15",
+    "publiee": {
+      "texte": "Épiméthée est un Titan, fils de Japet et frère de Prométhée. Son nom grec signifie « qui réfléchit après coup » : les deux frères incarnent « la prévoyance et l’étourderie ». Hésiode le montre fidèle à ce nom. Prométhée lui avait conseillé de ne rien accepter de Zeus et de lui renvoyer tous ses présents ; Épiméthée l’oublie, reçoit Pandore que lui amène Hermès, et ne sent son imprudence qu’une fois le présent entre ses mains. Pandore devient son épouse.",
+      "sources": [
+        {
+          "titre": "« Épiméthée », Wikipédia",
+          "url": "https://fr.wikipedia.org/wiki/%C3%89pim%C3%A9th%C3%A9e"
+        },
+        {
+          "titre": "Hésiode, *Les Travaux et les Jours*, trad. Henri Patin (Wikisource)",
+          "url": "https://fr.wikisource.org/wiki/Po%C3%A8tes_Moralistes_de_la_Gr%C3%A8ce/Les_Travaux_et_les_Jours"
+        }
+      ],
+      "citations": [
+        {
+          "texte": "qui réfléchit après coup",
+          "source_url": "https://fr.wikipedia.org/wiki/%C3%89pim%C3%A9th%C3%A9e"
+        },
+        {
+          "texte": "la prévoyance et l’étourderie",
+          "source_url": "https://fr.wikipedia.org/wiki/%C3%89pim%C3%A9th%C3%A9e"
+        }
+      ],
+      "date": "2026-10-15"
+    }
   },
   {
     "id": "n5",
     "texte": "francais",
     "passage": "le fils de Japet",
-    "etat": "en attente",
+    "etat": "validée",
     "fil": [
       {
         "auteur": "Mathieu",
         "type": "question",
         "texte": "C'est qui?",
         "date": "2026-10-15"
+      },
+      {
+        "auteur": "Claude",
+        "type": "réponse",
+        "texte": "Article Wikipédia « Prométhée » : Titan, fils cadet de Japet et de Thémis ou Clymène selon Hésiode, frère d’Atlas, Ménétios et Épiméthée.",
+        "date": "2026-10-15"
       }
-    ]
+    ],
+    "note": "Le fils de Japet est Prométhée. Japet est un Titan, enfant de la Terre et du Ciel ; Prométhée est son fils cadet, né de Clymène ou de Thémis selon les versions. Il a pour frères Atlas, Ménétios et Épiméthée, qui paraît plus loin dans le passage. Hésiode le désigne volontiers par sa filiation plutôt que par son nom, comme Zeus devient, dans la traduction de Patin, « le fils de Saturne ».",
+    "sources": [
+      {
+        "titre": "« Prométhée », Wikipédia",
+        "url": "https://fr.wikipedia.org/wiki/Prom%C3%A9th%C3%A9e"
+      },
+      {
+        "titre": "Hésiode, *Les Travaux et les Jours*, trad. Henri Patin (Wikisource)",
+        "url": "https://fr.wikisource.org/wiki/Po%C3%A8tes_Moralistes_de_la_Gr%C3%A8ce/Les_Travaux_et_les_Jours"
+      }
+    ],
+    "citations": [
+      {
+        "texte": "le fils de Saturne",
+        "source_url": "https://fr.wikisource.org/wiki/Po%C3%A8tes_Moralistes_de_la_Gr%C3%A8ce/Les_Travaux_et_les_Jours"
+      }
+    ],
+    "date": "2026-10-15",
+    "publiee": {
+      "texte": "Le fils de Japet est Prométhée. Japet est un Titan, enfant de la Terre et du Ciel ; Prométhée est son fils cadet, né de Clymène ou de Thémis selon les versions. Il a pour frères Atlas, Ménétios et Épiméthée, qui paraît plus loin dans le passage. Hésiode le désigne volontiers par sa filiation plutôt que par son nom, comme Zeus devient, dans la traduction de Patin, « le fils de Saturne ».",
+      "sources": [
+        {
+          "titre": "« Prométhée », Wikipédia",
+          "url": "https://fr.wikipedia.org/wiki/Prom%C3%A9th%C3%A9e"
+        },
+        {
+          "titre": "Hésiode, *Les Travaux et les Jours*, trad. Henri Patin (Wikisource)",
+          "url": "https://fr.wikisource.org/wiki/Po%C3%A8tes_Moralistes_de_la_Gr%C3%A8ce/Les_Travaux_et_les_Jours"
+        }
+      ],
+      "citations": [
+        {
+          "texte": "le fils de Saturne",
+          "source_url": "https://fr.wikisource.org/wiki/Po%C3%A8tes_Moralistes_de_la_Gr%C3%A8ce/Les_Travaux_et_les_Jours"
+        }
+      ],
+      "date": "2026-10-15"
+    }
   }
 ]

@@ -1,0 +1,16 @@
+[
+  {
+    "id": "n1",
+    "texte": "francais",
+    "passage": "l’arbre de la connaissance du bien et du mal.",
+    "etat": "en attente",
+    "fil": [
+      {
+        "auteur": "Mathieu",
+        "type": "question",
+        "texte": "Est ce que c'est bien l'arbre de la connaissance du bien et du mal ? Ou ça pourrait être l'arbre de la connaissance tout court ? Ca dépne des trads ?",
+        "date": "2026-10-15"
+      }
+    ]
+  }
+]
