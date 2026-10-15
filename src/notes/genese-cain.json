@@ -1,0 +1,16 @@
+[
+  {
+    "id": "n1",
+    "texte": "francais",
+    "passage": "L’Éternel lui dit : Si quelqu’un tuait Caïn, Caïn serait vengé sept fois.",
+    "etat": "en attente",
+    "fil": [
+      {
+        "auteur": "Mathieu",
+        "type": "question",
+        "texte": "Explique c'est difficile à suire là non?",
+        "date": "2026-10-15"
+      }
+    ]
+  }
+]

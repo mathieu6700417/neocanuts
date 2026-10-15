@@ -3,14 +3,54 @@
     "id": "n1",
     "texte": "francais",
     "passage": "l’arbre de la connaissance du bien et du mal.",
-    "etat": "en attente",
+    "etat": "à relire",
     "fil": [
       {
         "auteur": "Mathieu",
         "type": "question",
         "texte": "Est ce que c'est bien l'arbre de la connaissance du bien et du mal ? Ou ça pourrait être l'arbre de la connaissance tout court ? Ca dépne des trads ?",
         "date": "2026-10-15"
+      },
+      {
+        "auteur": "Claude",
+        "type": "réponse",
+        "date": "2026-10-15",
+        "texte": "Hébreu et variantes de traduction (Segond, TOB) lus dans l’article Wikipédia français ; le mérisme et la liste des interprétations savantes dans l’article Wikipédia anglais ; le verset 3, 22 dans la Segond de Wikisource. Aucune traduction consultée ne supprime « du bien et du mal » : la forme courte est un usage."
       }
-    ]
+    ],
+    "note": "Le texte hébreu porte bien les deux mots : *ets ha-da'at tov va-ra*, où *tov va-ra* signifie littéralement bien et mal. Les traductions gardent donc la paire et ne varient que sur les mots : Segond écrit « du bien et du mal », la TOB « l'arbre de la connaissance de ce qui est bon ou mauvais ». Dire simplement « arbre de la connaissance » est un raccourci d'usage, non une autre lecture. La vraie question est le sens. La paire peut être un mérisme, deux contraires réunis pour dire « tout » : ce serait alors la connaissance de toute chose. Les spécialistes y lisent aussi la sagesse, le discernement moral, le savoir sexuel ou la maturité. Plus loin, Dieu constate que l'homme est devenu « comme l’un de nous, pour la connaissance du bien et du mal ».",
+    "sources": [
+      {
+        "titre": "« Arbre de la connaissance du bien et du mal », Wikipédia",
+        "url": "https://fr.wikipedia.org/wiki/Arbre_de_la_connaissance_du_bien_et_du_mal"
+      },
+      {
+        "titre": "« Tree of the knowledge of good and evil », Wikipédia en anglais",
+        "url": "https://en.wikipedia.org/wiki/Tree_of_the_knowledge_of_good_and_evil"
+      },
+      {
+        "titre": "Genèse, trad. Louis Segond 1910 (Wikisource)",
+        "url": "https://fr.wikisource.org/wiki/Bible_Segond_1910/Gen%C3%A8se"
+      }
+    ],
+    "citations": [
+      {
+        "texte": "du bien et du mal",
+        "source_url": "https://fr.wikisource.org/wiki/Bible_Segond_1910/Gen%C3%A8se"
+      },
+      {
+        "texte": "l'arbre de la connaissance de ce qui est bon ou mauvais",
+        "source_url": "https://fr.wikipedia.org/wiki/Arbre_de_la_connaissance_du_bien_et_du_mal"
+      },
+      {
+        "texte": "arbre de la connaissance",
+        "source_url": "https://fr.wikipedia.org/wiki/Arbre_de_la_connaissance_du_bien_et_du_mal"
+      },
+      {
+        "texte": "comme l’un de nous, pour la connaissance du bien et du mal",
+        "source_url": "https://fr.wikisource.org/wiki/Bible_Segond_1910/Gen%C3%A8se"
+      }
+    ],
+    "date": "2026-10-15"
   }
 ]
