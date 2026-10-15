@@ -21,6 +21,18 @@
 <p lang="{{ d.langue }}"{% if d.langue == "he" %} dir="rtl"{% endif %}>{{ d.original | trim }}</p>
 </details>
 {%- endif %}
+{%- if local and extraits[d.slug] %}
+{%- set demande = extraits[d.slug] %}
+{%- set dernier = demande.fil | last %}
+<aside class="extrait-local" data-etat="{{ demande.etat }}" aria-label="Changement d'extrait">
+<p class="note-tete">Nouvel extrait · {{ demande.etat }}</p>
+<blockquote class="extrait-passage"><p>{{ demande.passage }}</p></blockquote>
+<p class="tour tour-{{ 'claude' if dernier.auteur == 'Claude' else 'mathieu' }}"><b>{{ "Claude" if dernier.auteur == "Claude" else "Vous" }}{% if dernier.type == "précision" %} (précision){% endif %} :</b> {{ dernier.texte }}</p>
+<p class="note-actions">
+{%- if demande.etat == "sans extrait" %}<button type="button" data-action="precision-extrait" data-slug="{{ d.slug }}">Demander une précision</button> {% endif -%}
+<button type="button" data-action="abandonner-extrait" data-slug="{{ d.slug }}">Abandonner la demande</button></p>
+</aside>
+{%- endif %}
 <p class="liens">
 {%- if d.texte_integral_url %}<a href="{{ d.texte_integral_url }}">Texte intégral</a> · {% endif -%}
 {%- if d.original_url and d.original_url != d.source_url %}<a href="{{ d.original_url }}"{% if d.langue != "fr" %} hreflang="{{ d.langue }}"{% endif %}>Original</a> · {% endif -%}

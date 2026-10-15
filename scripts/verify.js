@@ -7,6 +7,7 @@ import { execFileSync } from "node:child_process";
 import { chargerEntrees } from "./validation.js";
 import { chargerChapitres } from "./chapitres.js";
 import { chargerNotes } from "./notes.js";
+import { chargerExtraits } from "./extraits.js";
 
 const AGENT = "Mozilla/5.0 (compatible; neocanuts-verify/1.0)";
 const pages = new Map();
@@ -111,6 +112,7 @@ if (process.argv[1] && process.argv[1].endsWith("verify.js")) {
   const { entrees } = chargerEntrees();
   const { chapitres } = chargerChapitres();
   const { notes } = chargerNotes();
+  const { extraits } = chargerExtraits();
   let echecs = 0;
   for (const { data, corps } of entrees) {
     if (voulus.length && !voulus.includes(data.slug)) continue;
@@ -122,6 +124,13 @@ if (process.argv[1] && process.argv[1].endsWith("verify.js")) {
     if (chapitre) {
       if (!/traduction Néocanuts/i.test(chapitre.data.traduction || "")) controles.push(["chapitre", sansMarkdown(chapitre.corps), chapitre.data.source_url]);
       if (chapitre.original) controles.push(["chapitre original", sansMarkdown(chapitre.original), chapitre.data.original_url || chapitre.data.source_url]);
+    }
+    // Extrait proposé pour remplacer celui de la frise, s'il est prêt.
+    const demande = extraits.get(data.slug);
+    const proposition = demande?.etat === "prête" && demande.proposition;
+    if (proposition) {
+      if (!maison && proposition.extrait) controles.push(["extrait proposé", sansMarkdown(proposition.extrait), data.source_url]);
+      if (proposition.original) controles.push(["original proposé", proposition.original, data.original_url || data.source_url]);
     }
     // Citations des notes de lecture : la version en cours et la version publiée.
     for (const note of notes.get(data.slug) || []) {

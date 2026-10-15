@@ -2,6 +2,7 @@ import markdownIt from "markdown-it";
 import { chargerEntrees, dateIso, epoques } from "./scripts/validation.js";
 import { DEBUT, FIN, finaliser, inserer, trouverPlages, validerChapitres } from "./scripts/chapitres.js";
 import { chargerNotes, compterEnAttente, intergicielNotes, poserNotes, validerNotes } from "./scripts/notes.js";
+import { chargerExtraits, compterExtraitsEnAttente, intergicielExtraits, validerExtraits } from "./scripts/extraits.js";
 
 // Site local (`npm run dev`) : toutes les notes, avec leur fil et les actions d'édition.
 // Site public : les seules notes validées, sans script d'édition.
@@ -33,8 +34,12 @@ export default function (eleventyConfig) {
   if (LOCAL) {
     eleventyConfig.addPassthroughCopy("src/js");
     eleventyConfig.addWatchTarget("./src/notes/");
+    eleventyConfig.addWatchTarget("./src/extraits/");
     eleventyConfig.addGlobalData("notesEnAttente", () => compterEnAttente(chargerNotes().notes));
-    eleventyConfig.setServerOptions({ middleware: [intergicielNotes] });
+    // Demandes de changement d'extrait, par slug, montrées sous l'entrée de la frise.
+    eleventyConfig.addGlobalData("extraits", () => Object.fromEntries(chargerExtraits().extraits));
+    eleventyConfig.addGlobalData("extraitsEnAttente", () => compterExtraitsEnAttente(chargerExtraits().extraits));
+    eleventyConfig.setServerOptions({ middleware: [intergicielNotes, intergicielExtraits] });
   }
 
   // La frise : les époques non vides, chacune avec ses entrées triées par année du texte.
@@ -107,7 +112,8 @@ export default function (eleventyConfig) {
     const { entrees, erreurs } = chargerEntrees();
     const { chapitres, erreurs: erreursChapitres } = validerChapitres(entrees);
     const { notes, erreurs: erreursNotes } = validerNotes(chapitres);
-    erreurs.push(...erreursChapitres, ...erreursNotes);
+    const { erreurs: erreursExtraits } = validerExtraits(entrees, chapitres);
+    erreurs.push(...erreursChapitres, ...erreursNotes, ...erreursExtraits);
     if (erreurs.length) {
       throw new Error("Pages longues invalides :\n" + erreurs.map((e) => `  - ${e}`).join("\n"));
     }

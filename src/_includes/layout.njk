@@ -18,11 +18,13 @@
 </head>
 <body>
 {%- if local %}
-<p class="bandeau-local" role="status">Site local · {% if notesEnAttente %}{{ notesEnAttente }} question{% if notesEnAttente > 1 %}s{% endif %} en attente : lancez <code>/notes</code> dans Claude Code{% else %}aucune question en attente{% endif %}.</p>
+<p class="bandeau-local" role="status">Site local · {% if notesEnAttente or extraitsEnAttente -%}
+{%- if notesEnAttente %}{{ notesEnAttente }} question{% if notesEnAttente > 1 %}s{% endif %}{% endif %}{% if notesEnAttente and extraitsEnAttente %} et {% endif %}{% if extraitsEnAttente %}{{ extraitsEnAttente }} extrait{% if extraitsEnAttente > 1 %}s{% endif %}{% endif %} en attente : lancez <code>/notes</code> dans Claude Code
+{%- else %}rien en attente{% endif %}.</p>
 {%- endif %}
 {{ content | safe }}
 {%- if local %}
-<script src="{{ '/js/notes-locales.js' | url }}" data-api="{{ '/api/notes/' | url }}"></script>
+<script src="{{ '/js/notes-locales.js' | url }}" data-api="{{ '/api/notes/' | url }}" data-api-extraits="{{ '/api/extraits/' | url }}"></script>
 {%- endif %}
 </body>
 </html>

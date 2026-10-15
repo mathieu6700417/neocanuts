@@ -198,7 +198,7 @@ cite { font-weight: 400; }
 .texte p { hyphens: auto; }
 #passage, #passage-original { scroll-margin-top: 1.5rem; }
 mark {
-  background: color-mix(in srgb, var(--accent) 16%, transparent);
+  background: color-mix(in srgb, var(--accent) 7%, transparent);
   color: inherit;
   padding: 0.05em 0;
   box-decoration-break: clone;
@@ -250,7 +250,7 @@ mark {
 .tour-mathieu { color: var(--encre); }
 .note-fil + .note-corps { margin-top: 0.3em; padding-top: 0.3em; border-top: 1px dotted var(--filet); }
 .note-locale[data-etat="en attente"] { border-left-style: dashed; }
-.note-actions button, .bouton-question, .panneau-note button {
+.note-actions button, .bouton-question button, .panneau-note button {
   font: inherit;
   font-size: 0.84rem;
   color: var(--accent);
@@ -279,7 +279,8 @@ mark {
   color: var(--sourdine);
   border-bottom: 1px dashed var(--filet);
 }
-.bouton-question { position: absolute; z-index: 5; margin: 0; box-shadow: 0 1px 4px rgb(0 0 0 / 0.15); }
+.bouton-question { position: absolute; z-index: 5; display: flex; gap: 0.3em; }
+.bouton-question button { margin: 0; box-shadow: 0 1px 4px rgb(0 0 0 / 0.15); }
 .panneau-note {
   position: fixed;
   left: 0;
@@ -301,6 +302,13 @@ mark {
 .panneau-note textarea { width: 100%; font: inherit; padding: 0.4em; background: var(--papier); color: var(--encre); border: 1px solid var(--filet); }
 .panneau-actions { margin: 0.4em 0 0; }
 .panneau-etat { color: var(--sourdine); }
+.panneau-avis { margin: 0 0 0.4em; color: var(--sourdine); }
+.extrait-local { margin: 1em 0; padding: 0.6em 0 0.6em 0.9em; border-left: 2px solid var(--accent); font-size: 0.95rem; }
+.extrait-local[data-etat="en attente"] { border-left-style: dashed; }
+.extrait-local > .note-tete { margin: 0; }
+.extrait-local blockquote { margin: 0.5em 0; }
+.extrait-passage p { color: var(--sourdine); font-style: italic; max-height: 9em; overflow-y: auto; }
+.extrait-local .note-actions { margin: 0.3em 0 0; }
 @media (min-width: 1240px) {
   .note {
     display: block;

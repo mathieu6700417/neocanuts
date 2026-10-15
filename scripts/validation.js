@@ -20,8 +20,8 @@ const OBLIGATOIRES = [
 ];
 const URLS = ["source_url", "original_url", "texte_integral_url"];
 const IDS_RESERVES = ["sommaire", "frise", "absents", "colophon"];
-const MOTS_MIN = 60;
-const MOTS_MAX = 200;
+export const MOTS_MIN = 60;
+export const MOTS_MAX = 200;
 
 const vide = (v) => v === undefined || v === null || String(v).trim() === "";
 const estUrl = (v) => /^https?:\/\/\S+$/.test(String(v));

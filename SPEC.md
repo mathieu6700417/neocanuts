@@ -473,6 +473,51 @@ montrée en ligne. Une note en révision garde donc sa version publiée.
 le passage cité. Le site local refuse un passage absent ou présent plusieurs
 fois ; le build et `check` échouent si un passage a disparu du chapitre.
 
+## Changer d'extrait
+
+Sur le site local, Mathieu sélectionne un passage du texte français d'une page
+longue et le propose comme nouvel extrait de la frise ; `/notes` le prépare
+et l'applique aussitôt à l'entrée, sans relecture ; le `/notes` suivant le met
+en ligne. Décidé le 15 octobre 2026, en cinq questions ; relecture supprimée le
+même jour à la demande de Mathieu.
+
+| # | Question | Décision |
+| --- | --- | --- |
+| 1 | Circuit | Sélection sur le site local, file dans le dépôt, traitée par `/notes` |
+| 2 | Où sélectionner | Le texte français de la page longue seulement ; `/notes` aligne l'original |
+| 3 | Publication | Sans relecture : `/notes` applique l'extrait préparé, le `/notes` suivant le publie |
+| 4 | Forme | Un passage d'un seul tenant, sur plusieurs paragraphes au besoin ; commentaire facultatif ; avertissement hors de 60 à 200 mots |
+| 5 | Notice | `/notes` la retouche si elle ne colle plus, comme la référence (`oeuvre`) |
+
+**Site local.** Une sélection dans le texte français ouvre « Poser une
+question » et « Proposer comme extrait ». `POST /api/extraits/proposer`,
+`precision` et `abandonner` (intergiciel de `scripts/extraits.js`)
+écrivent `src/extraits/<slug>.json`. Sous l'entrée de la frise, la page
+d'accueil locale montre la demande en cours et la réponse de Claude quand il
+n'a pas pu préparer d'extrait. Le bandeau compte les extraits en attente. Le
+build public ignore ces fichiers.
+
+**Modèle.** `src/extraits/<slug>.json`, une demande par entrée (une nouvelle
+proposition remplace la précédente) : `passage` (texte sélectionné, unique
+dans le chapitre), `commentaire`, `etat` (`en attente`, `à relire`,
+`prête`, `sans extrait`), `fil` (tours `{ auteur, type, texte, date }`,
+`type` : `demande`, `réponse`, `précision`), `proposition` (`extrait`,
+`original`, `notice` et `oeuvre` facultatives, quand la notice ou la
+référence ne collent plus) et `date`.
+
+**Contrôles.** `check` et le build exigent que le passage soit dans le
+chapitre et qu'une proposition puisse remplacer l'extrait telle quelle : un
+paragraphe de 60 à 200 mots retrouvé dans le chapitre, et un original retrouvé
+dans le chapitre original quand l'entrée en a un. `verify` contrôle l'extrait
+et l'original proposés contre les sources de l'entrée.
+
+**Publication.** `node scripts/extraits.js appliquer <slug>`, lancé par
+`/notes` sur une demande `prête`, refait les contrôles de `check`, reporte
+l'extrait, l'original, la notice et la référence dans `src/auteurs/<slug>.md`
+(en ne touchant que ces champs, `verifie` passant à la date du jour) et
+supprime la demande. Au `/notes` suivant, le circuit des notes s'applique
+(contrôles, commit, push, vérification en ligne).
+
 ## Candidats au corpus
 
 Soixante-dix candidats de mémoire, à vérifier un par un ; la cinquantaine

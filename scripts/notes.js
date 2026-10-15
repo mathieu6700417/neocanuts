@@ -132,7 +132,7 @@ export function poserNotes(markdown, liste, texte, garder) {
 
 // --- Actions du site local (servies par le serveur de développement) ---
 
-function lireCorps(req) {
+export function lireCorps(req) {
   return new Promise((resoudre, rejeter) => {
     let corps = "";
     req.on("data", (morceau) => {
