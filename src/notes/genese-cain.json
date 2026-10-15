@@ -93,14 +93,74 @@
     "id": "n2",
     "texte": "francais",
     "passage": "J’ai tué un homme pour ma blessure,\n\net un jeune homme pour ma meurtrissure.",
-    "etat": "en attente",
+    "etat": "validée",
     "fil": [
       {
         "auteur": "Mathieu",
         "type": "question",
         "texte": "Explique",
         "date": "2026-10-15"
+      },
+      {
+        "auteur": "Claude",
+        "type": "réponse",
+        "date": "2026-10-15",
+        "texte": "Chant lu dans la Segond (Genèse 4, 19-24). L’article Wikipédia anglais « Lamech (descendant of Cain) » donne la septième génération depuis Adam, la lecture d’un seul jeune homme tué pour l’avoir frappé, et la vantardise d’une vengeance onze fois plus forte que celle de Caïn. Je ne relie pas le chant aux armes de Tubal-Caïn : je signale seulement leur voisinage dans le texte."
       }
-    ]
+    ],
+    "note": "Lémec, descendant de Caïn et septième génération depuis Adam, s’adresse à ses deux femmes, Ada et Tsilla. Le second vers redit le premier : Lémec a tué un jeune homme qui l’avait frappé, et une simple blessure a coûté la vie à celui qui la lui avait faite. Il ne s’en cache pas, il s’en vante. Puis il reprend la protection que Dieu avait accordée à Caïn, « vengé sept fois », et la porte pour lui-même à « soixante-dix-sept fois », onze fois plus. La garantie donnée au meurtrier devient chez son descendant une menace sans mesure. Le chant suit de près la naissance de Tubal-Caïn, « qui forgeait tous les instruments d’airain et de fer ».",
+    "sources": [
+      {
+        "titre": "Genèse, trad. Louis Segond 1910 (Wikisource)",
+        "url": "https://fr.wikisource.org/wiki/Bible_Segond_1910/Gen%C3%A8se"
+      },
+      {
+        "titre": "« Lamech (descendant of Cain) », Wikipédia en anglais",
+        "url": "https://en.wikipedia.org/wiki/Lamech_(descendant_of_Cain)"
+      }
+    ],
+    "citations": [
+      {
+        "texte": "vengé sept fois",
+        "source_url": "https://fr.wikisource.org/wiki/Bible_Segond_1910/Gen%C3%A8se"
+      },
+      {
+        "texte": "soixante-dix-sept fois",
+        "source_url": "https://fr.wikisource.org/wiki/Bible_Segond_1910/Gen%C3%A8se"
+      },
+      {
+        "texte": "qui forgeait tous les instruments d’airain et de fer",
+        "source_url": "https://fr.wikisource.org/wiki/Bible_Segond_1910/Gen%C3%A8se"
+      }
+    ],
+    "date": "2026-10-15",
+    "publiee": {
+      "texte": "Lémec, descendant de Caïn et septième génération depuis Adam, s’adresse à ses deux femmes, Ada et Tsilla. Le second vers redit le premier : Lémec a tué un jeune homme qui l’avait frappé, et une simple blessure a coûté la vie à celui qui la lui avait faite. Il ne s’en cache pas, il s’en vante. Puis il reprend la protection que Dieu avait accordée à Caïn, « vengé sept fois », et la porte pour lui-même à « soixante-dix-sept fois », onze fois plus. La garantie donnée au meurtrier devient chez son descendant une menace sans mesure. Le chant suit de près la naissance de Tubal-Caïn, « qui forgeait tous les instruments d’airain et de fer ».",
+      "sources": [
+        {
+          "titre": "Genèse, trad. Louis Segond 1910 (Wikisource)",
+          "url": "https://fr.wikisource.org/wiki/Bible_Segond_1910/Gen%C3%A8se"
+        },
+        {
+          "titre": "« Lamech (descendant of Cain) », Wikipédia en anglais",
+          "url": "https://en.wikipedia.org/wiki/Lamech_(descendant_of_Cain)"
+        }
+      ],
+      "citations": [
+        {
+          "texte": "vengé sept fois",
+          "source_url": "https://fr.wikisource.org/wiki/Bible_Segond_1910/Gen%C3%A8se"
+        },
+        {
+          "texte": "soixante-dix-sept fois",
+          "source_url": "https://fr.wikisource.org/wiki/Bible_Segond_1910/Gen%C3%A8se"
+        },
+        {
+          "texte": "qui forgeait tous les instruments d’airain et de fer",
+          "source_url": "https://fr.wikisource.org/wiki/Bible_Segond_1910/Gen%C3%A8se"
+        }
+      ],
+      "date": "2026-10-15"
+    }
   }
 ]

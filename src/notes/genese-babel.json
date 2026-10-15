@@ -1,0 +1,16 @@
+[
+  {
+    "id": "n1",
+    "texte": "francais",
+    "passage": "Et la brique leur servit de pierre, et le bitume leur servit de ciment.",
+    "etat": "en attente",
+    "fil": [
+      {
+        "auteur": "Mathieu",
+        "type": "question",
+        "texte": "Est ce que l'on parle de rupture technologique là ?",
+        "date": "2026-10-15"
+      }
+    ]
+  }
+]
